@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7-Day Spiritual Programme — Fresh Starts, Strength & Peace</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF7F2;
+    --parchment: #F2EDE3;
+    --warm-border: #E0D8CC;
+    --rust: #9B3A1E;
+    --rust-light: #C4501F;
+    --rust-muted: #D4956A;
+    --gold: #BF8B3A;
+    --gold-light: #E8C97A;
+    --deep-green: #2A4A35;
+    --forest: #3D6B50;
+    --sage: #8FAF98;
+    --sage-light: #C4D9CB;
+    --deep-blue: #1C3A5E;
+    --slate-blue: #2E5785;
+    --sky: #A8C4DC;
+    --ink: #1A1610;
+    --charcoal: #3A332A;
+    --muted: #7A6E62;
+    --light-muted: #B0A89E;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Lato', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--deep-green);
+    color: var(--cream);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--sage-light);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .theme-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .theme-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .tb-green { background: rgba(143,175,152,0.2); color: var(--sage); border: 1px solid rgba(143,175,152,0.35); }
+  .tb-blue  { background: rgba(168,196,220,0.2); color: var(--sky); border: 1px solid rgba(168,196,220,0.35); }
+  .tb-gold  { background: rgba(191,139,58,0.2); color: var(--gold-light); border: 1px solid rgba(191,139,58,0.35); }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: calc(100vh - 280px);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    padding: 2rem 0 2rem 1.5rem;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+  }
+  .sidebar-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light-muted);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-left: 4px;
+  }
+  .day-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: left;
+    transition: background 0.2s;
+    margin-bottom: 2px;
+  }
+  .day-nav-btn:hover { background: var(--parchment); }
+  .day-nav-btn.active { background: var(--parchment); }
+  .day-nav-btn .dnb-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    border: 1.5px solid;
+    transition: all 0.2s;
+  }
+  .day-nav-btn.active .dnb-num, .day-nav-btn:hover .dnb-num { color: white; }
+  .dn-green .dnb-num { border-color: var(--forest); color: var(--forest); }
+  .dn-green.active .dnb-num, .dn-green:hover .dnb-num { background: var(--forest); }
+  .dn-blue  .dnb-num { border-color: var(--slate-blue); color: var(--slate-blue); }
+  .dn-blue.active .dnb-num, .dn-blue:hover .dnb-num { background: var(--slate-blue); }
+  .dn-gold  .dnb-num { border-color: var(--gold); color: var(--gold); }
+  .dn-gold.active .dnb-num, .dn-gold:hover .dnb-num { background: var(--gold); }
+  .day-nav-btn .dnb-text { font-size: 12px; line-height: 1.3; }
+  .day-nav-btn .dnb-name { color: var(--charcoal); font-weight: 400; }
+  .day-nav-btn .dnb-theme { color: var(--light-muted); font-size: 11px; }
+  .day-nav-btn.active .dnb-name { font-weight: 700; color: var(--ink); }
+
+  .sidebar-divider {
+    height: 1px;
+    background: var(--warm-border);
+    margin: 1rem 12px 1rem 4px;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    flex: 1;
+    padding: 2.5rem 2rem 4rem;
+    border-left: 1px solid var(--warm-border);
+    min-width: 0;
+  }
+
+  .day-panel { display: none; animation: fadeIn 0.35s ease; }
+  .day-panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .day-header-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--warm-border);
+  }
+  .day-badge-large {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1.5px solid;
+    line-height: 1.1;
+  }
+  .dbl-green { background: #EDF6EC; border-color: var(--forest); color: var(--deep-green); }
+  .dbl-blue  { background: #EBF2FA; border-color: var(--slate-blue); color: var(--deep-blue); }
+  .dbl-gold  { background: #FAF3E8; border-color: var(--gold); color: #704A00; }
+  .day-badge-large .badge-day { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+  .day-badge-large .badge-num { font-family: var(--font-serif); font-size: 26px; font-weight: 600; }
+
+  .day-header-text {}
+  .day-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .day-theme-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .dtl-green { color: var(--forest); }
+  .dtl-blue  { color: var(--slate-blue); }
+  .dtl-gold  { color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 1.75rem; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--warm-border);
+  }
+  .sl-green { color: var(--forest); }
+  .sl-blue  { color: var(--slate-blue); }
+  .sl-gold  { color: var(--gold); }
+
+  .verse-card {
+    background: var(--parchment);
+    border: 1px solid var(--warm-border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    border-left-width: 4px;
+  }
+  .vc-green { border-left-color: var(--forest); }
+  .vc-blue  { border-left-color: var(--slate-blue); }
+  .vc-gold  { border-left-color: var(--gold); }
+  .verse-text {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--charcoal);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .verse-ref {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .revelation-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--charcoal);
+  }
+  .revelation-text p { margin-bottom: 0.9rem; }
+  .revelation-text strong { color: var(--ink); font-weight: 700; }
+  .revelation-text em { font-family: var(--font-serif); font-style: italic; font-size: 1.05em; }
+
+  .prayer-card {
+    background: var(--parchment);
+    border: 1px solid var(--warm-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .prayer-text {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--charcoal);
+    font-style: italic;
+  }
+  .prayer-text p { margin-bottom: 0.8rem; }
+  .prayer-amen {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+  }
+
+  .practices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 600px) { .practices-grid { grid-template-columns: 1fr; } }
+  .practice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--parchment);
+    border: 1px solid var(--warm-border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--charcoal);
+  }
+  .pi-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .pd-green { background: var(--forest); }
+  .pd-blue  { background: var(--slate-blue); }
+  .pd-gold  { background: var(--gold); }
+
+  /* ── NAV FOOTER ── */
+  .nav-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--warm-border);
+  }
+  .nav-foot-btn {
+    padding: 10px 20px;
+    border: 1.5px solid var(--warm-border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nav-foot-btn:hover { background: var(--parchment); color: var(--ink); border-color: var(--muted); }
+  .nav-foot-btn:disabled { opacity: 0.3; cursor: default; }
+  .nav-foot-indicator { font-size: 12px; color: var(--light-muted); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep-green);
+    color: var(--sage);
+    text-align: center;
+    padding: 2rem;
+    font-size: 13px;
+  }
+  footer blockquote {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--sage-light);
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 720px) {
+    .sidebar { display: none; }
+    .content { border-left: none; padding: 1.5rem 1rem 3rem; }
+    .main { flex-direction: column; }
+    .mobile-tabs {
+      display: flex;
+      overflow-x: auto;
+      gap: 0;
+      background: var(--parchment);
+      border-bottom: 1px solid var(--warm-border);
+      padding: 0 1rem;
+    }
+    .mobile-tab-btn {
+      padding: 12px 14px;
+      border: none;
+      background: transparent;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+    }
+    .mobile-tab-btn.active { color: var(--ink); border-bottom-color: var(--rust); }
+  }
+  @media (min-width: 721px) { .mobile-tabs { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">A weekly walk in faith</div>
+  <h1>Seven Days of<br><em>Spiritual Renewal</em></h1>
+  <p class="hero-sub">A structured devotional programme weaving together Fresh Starts, Confidence & Strength, and Peace & Guidance — with scripture, revelation, and daily prayer.</p>
+  <div class="theme-badges">
+    <span class="theme-badge tb-green">Fresh Starts · Isaiah 43:19</span>
+    <span class="theme-badge tb-blue">Confidence & Strength · Isaiah 40:31</span>
+    <span class="theme-badge tb-gold">Peace & Guidance · Proverbs 3:5–6</span>
+  </div>
+</div>
+
+<div class="mobile-tabs" id="mobileTabs"></div>
+
+<div class="main">
+  <aside class="sidebar">
+    <div class="sidebar-label">Days</div>
+    <button class="day-nav-btn dn-green active" onclick="showDay(0)">
+      <span class="dnb-num">1</span>
+      <span class="dnb-text"><span class="dnb-name">Monday</span><br><span class="dnb-theme">God Makes a Way</span></span>
+    </button>
+    <button class="day-nav-btn dn-green" onclick="showDay(1)">
+      <span class="dnb-num">2</span>
+      <span class="dnb-text"><span class="dnb-name">Tuesday</span><br><span class="dnb-theme">Forget the Former</span></span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <button class="day-nav-btn dn-blue" onclick="showDay(2)">
+      <span class="dnb-num">3</span>
+      <span class="dnb-text"><span class="dnb-name">Wednesday</span><br><span class="dnb-theme">Wings Like Eagles</span></span>
+    </button>
+    <button class="day-nav-btn dn-blue" onclick="showDay(3)">
+      <span class="dnb-num">4</span>
+      <span class="dnb-text"><span class="dnb-name">Thursday</span><br><span class="dnb-theme">Strength, Not Perf.</span></span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <button class="day-nav-btn dn-gold" onclick="showDay(4)">
+      <span class="dnb-num">5</span>
+      <span class="dnb-text"><span class="dnb-name">Friday</span><br><span class="dnb-theme">Trust Your Heart</span></span>
+    </button>
+    <button class="day-nav-btn dn-gold" onclick="showDay(5)">
+      <span class="dnb-num">6</span>
+      <span class="dnb-text"><span class="dnb-name">Saturday</span><br><span class="dnb-theme">Stillness as Guidance</span></span>
+    </button>
+    <button class="day-nav-btn dn-gold" onclick="showDay(6)">
+      <span class="dnb-num">7</span>
+      <span class="dnb-text"><span class="dnb-name">Sunday</span><br><span class="dnb-theme">The Path Made Clear</span></span>
+    </button>
+  </aside>
+
+  <main class="content">
+
+    <!-- DAY 1: MONDAY -->
+    <div class="day-panel active" id="day-0">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-green"><span class="badge-day">Mon</span><span class="badge-num">1</span></div>
+        <div class="day-header-text">
+          <div class="day-title">The God Who Makes a Way</div>
+          <div class="day-theme-label dtl-green">Fresh Starts · Isaiah 43:19</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-green">Scripture</div>
+        <div class="verse-card vc-green">
+          <div class="verse-text">"See, I am doing a new thing! Now it springs up; do you not perceive it? I am making a way in the wilderness and streams in the wasteland."</div>
+          <div class="verse-ref">Isaiah 43:19 — NIV</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-green">Revelation</div>
+        <div class="revelation-text">
+          <p>The profound revelation here is that God does not wait for conditions to be ideal before He acts. <strong>He makes a way where there is no way.</strong> Notice the wilderness — not a garden, not a smooth road, but a desert — and yet God declares a path through it. The "new thing" God promises is not a recycled version of the past; it is a genuinely new creative act, as original as the very first day of creation.</p>
+          <p>This week begins with a fundamental truth: <strong>your fresh start is not dependent on your circumstances changing first.</strong> God's newness breaks into the middle of your mess, not after it. The same God who parted the Red Sea is still in the business of parting your impossible situations. <em>Before you do a single thing differently, He has already begun.</em></p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-green">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father, I come before You at the beginning of this week with an open heart. I confess that sometimes I have looked at my circumstances and seen only wilderness — only impossibility. But Your Word declares that You are already doing something new.</p>
+            <p>Open the eyes of my heart today to perceive what You are doing. Where I see dead ends, let me see Your divine detours. Where I see desert, let me taste the streams You are bringing. I surrender every "old thing" I have been holding onto — every fear, every failure, every regret — and I receive the new work of Your hands.</p>
+            <p>Make a way for me this week, Lord. Not because I deserve it, but because You are faithful and Your mercy is new every morning.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-green">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-green"></div><span>Write down one area of your life you are believing God to make new.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-green"></div><span>Read Isaiah 43:14–21 in full for the wider context of God's renewal.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-green"></div><span>Spend 10 minutes in silence, asking: "Lord, what new thing are You doing?"</span></div>
+          <div class="practice-item"><div class="pi-dot pd-green"></div><span>Thank God for one thing that ended — even if it hurt — to make room for the new.</span></div>
+        </div>
+      </div>
+      <div class="nav-footer">
+        <button class="nav-foot-btn" disabled>← Previous</button>
+        <span class="nav-foot-indicator">Day 1 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(1)">Next →</button>
+      </div>
+    </div>
+
+    <!-- DAY 2: TUESDAY -->
+    <div class="day-panel" id="day-1">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-green"><span class="badge-day">Tue</span><span class="badge-num">2</span></div>
+        <div class="day-header-text">
+          <div class="day-title">Forget the Former Things</div>
+          <div class="day-theme-label dtl-green">Fresh Starts · Isaiah 43:18</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-green">Scripture</div>
+        <div class="verse-card vc-green">
+          <div class="verse-text">"Forget the former things; do not dwell on the past. See, I am doing a new thing!"</div>
+          <div class="verse-ref">Isaiah 43:18–19a — NIV</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-green">Revelation</div>
+        <div class="revelation-text">
+          <p>This is perhaps the most counterintuitive command in Scripture. God — who Himself regularly reminded Israel of what He did in Egypt and at the Red Sea — now tells them: <strong>stop looking backward.</strong> Why? Because the coming redemption was so much greater that nostalgia for the past would become a spiritual limitation.</p>
+          <p>The deep revelation is this: <strong>clinging to the past, even a glorious past, can blind you to a greater future.</strong> God is not asking you to erase your memories; He is asking you to release their grip on your identity. You are not your past successes or your past failures. <em>You are a new creation, perpetually on the edge of what God is about to do.</em></p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-green">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Lord, I confess that I have sometimes built my identity around what has already happened — both the victories and the wounds. Today I choose, by an act of my will and Your grace, to loosen my grip on the past.</p>
+            <p>Where old failures have whispered that I am not enough, silence those voices with Your truth. Where old wounds have made me cautious and closed, heal me and make me open again. Where I have clung to former glories out of fear of the unknown, give me the courage to step forward into the new.</p>
+            <p>I declare today: I am not who I was. I am who You say I am — new, loved, and moving forward in Your purpose.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-green">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-green"></div><span>Identify one past event you've been replaying. Pray and release it consciously to God.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-green"></div><span>Read 2 Corinthians 5:17 and meditate on what "new creation" means for you personally.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-green"></div><span>Journal: "The new thing God is doing in my life looks like..."</span></div>
+          <div class="practice-item"><div class="pi-dot pd-green"></div><span>Speak aloud: "I am not defined by my past. I am defined by Christ."</span></div>
+        </div>
+      </div>
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(0)">← Previous</button>
+        <span class="nav-foot-indicator">Day 2 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(2)">Next →</button>
+      </div>
+    </div>
+
+    <!-- DAY 3: WEDNESDAY -->
+    <div class="day-panel" id="day-2">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-blue"><span class="badge-day">Wed</span><span class="badge-num">3</span></div>
+        <div class="day-header-text">
+          <div class="day-title">Soaring on Wings Like Eagles</div>
+          <div class="day-theme-label dtl-blue">Confidence & Strength · Isaiah 40:31</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-blue">Scripture</div>
+        <div class="verse-card vc-blue">
+          <div class="verse-text">"But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint."</div>
+          <div class="verse-ref">Isaiah 40:31 — NIV</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-blue">Revelation</div>
+        <div class="revelation-text">
+          <p>Notice the three movements in this verse: <strong>soaring, running, walking.</strong> They descend in intensity — and yet all three are promised. The revelation is that God's strength is available not only in your mountain-top moments of soaring, but also in the ordinary grinding walk of daily life. Many believers seek only the "eagle moments" and feel spiritually deficient on the ordinary days. <em>God says: even your walking is carried by My strength.</em></p>
+          <p>The word "hope" here is the Hebrew <em>qavah</em> — to wait, to bind together, to be entwined. It is not passive optimism. <strong>It is an active, deliberate anchoring of yourself to God.</strong> Your confidence this week does not come from your talent, your credentials, or your track record. It comes from the One to whom you are bound.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-blue">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father, midway through this week I come to You acknowledging my own weakness. I have tried at times to run on my own reserves — my own intelligence, my own discipline, my own willpower. And I have grown weary. Today I exchange my weakness for Your strength.</p>
+            <p>I choose to hope in You — not in my plans, not in my performance, not in other people's opinions of me. I bind myself to You afresh today. Renew my strength from the inside out. Lift me above my circumstances. Let me see my situation from Your perspective — from above the clouds.</p>
+            <p>Where I feel like I cannot run another step, be my strength. Where I can barely walk, carry me. I trust that You are more than enough.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-blue">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-blue"></div><span>Read Isaiah 40:28–31 in full and meditate on God as the One "who does not grow weary."</span></div>
+          <div class="practice-item"><div class="pi-dot pd-blue"></div><span>Identify where you feel most depleted. Bring that specific area to God in prayer.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-blue"></div><span>Memorize Isaiah 40:31. Write it on a card and carry it today.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-blue"></div><span>Practice 5 minutes of waiting in God's presence — no agenda, no words. Just rest.</span></div>
+        </div>
+      </div>
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(1)">← Previous</button>
+        <span class="nav-foot-indicator">Day 3 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(3)">Next →</button>
+      </div>
+    </div>
+
+    <!-- DAY 4: THURSDAY -->
+    <div class="day-panel" id="day-3">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-blue"><span class="badge-day">Thu</span><span class="badge-num">4</span></div>
+        <div class="day-header-text">
+          <div class="day-title">Strength, Not Performance</div>
+          <div class="day-theme-label dtl-blue">Confidence & Strength · Philippians 4:13</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-blue">Scripture</div>
+        <div class="verse-card vc-blue">
+          <div class="verse-text">"I can do all this through him who gives me strength."</div>
+          <div class="verse-ref">Philippians 4:13 — NIV · Also Psalm 46:1</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-blue">Revelation</div>
+        <div class="revelation-text">
+          <p>Philippians 4:13 is perhaps the most quoted verse in sport and self-improvement culture — and in that context it is almost always misunderstood. Paul wrote this not from a stage of triumph, but from prison. The context is <em>contentment in all circumstances</em> — in abundance and in need alike. <strong>The "all things" is not about achieving great feats. It is about surviving impossible seasons without losing your peace.</strong></p>
+          <p>The revelation for today is the nature of divine confidence. The world's confidence says: "I can do this because I am talented." God's confidence says: <strong>"I can face this because Christ is in me."</strong> This is not self-belief; it is Christ-belief. It is the kind of confidence that can walk into the hardest situation without flinching — not because you have all the answers, but because the One who does lives inside you.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-blue">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Lord Jesus, today I anchor my confidence not in what I know, not in what I have, and not in what others think of me — but in You alone. I declare that You live in me, and therefore I carry something greater than my circumstances.</p>
+            <p>For every task I face today that feels too large: You are larger. For every relationship that feels too complex: Your wisdom is sufficient. For every demand on my time and energy: Your grace is more than enough. I refuse to move through this day in anxiety. I choose instead the settled, confident peace of one who knows whose they are.</p>
+            <p>Be my strength in every moment — seen and unseen, celebrated and unnoticed.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-blue">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-blue"></div><span>Read Philippians 4:10–13 in context and note what Paul says about contentment.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-blue"></div><span>Name three things you are attempting this week. Pray Philippians 4:13 over each one.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-blue"></div><span>Journal: "My true source of confidence is..." and sit with the answer honestly before God.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-blue"></div><span>Do one difficult thing today — and attribute the ability to Christ, not to yourself.</span></div>
+        </div>
+      </div>
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(2)">← Previous</button>
+        <span class="nav-foot-indicator">Day 4 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(4)">Next →</button>
+      </div>
+    </div>
+
+    <!-- DAY 5: FRIDAY -->
+    <div class="day-panel" id="day-4">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-gold"><span class="badge-day">Fri</span><span class="badge-num">5</span></div>
+        <div class="day-header-text">
+          <div class="day-title">Trust with All Your Heart</div>
+          <div class="day-theme-label dtl-gold">Peace & Guidance · Proverbs 3:5–6</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Scripture</div>
+        <div class="verse-card vc-gold">
+          <div class="verse-text">"Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight."</div>
+          <div class="verse-ref">Proverbs 3:5–6 — NIV</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Revelation</div>
+        <div class="revelation-text">
+          <p>The structure of this passage reveals a divine transaction. There are two things God asks of you — trust, and submission — and one thing He promises in return: straight paths. But the two requests are radical. <strong>"With all your heart"</strong> leaves no room for partial commitment. <strong>"In all your ways"</strong> leaves no department of your life exempt from His lordship.</p>
+          <p>The deeper revelation is in the phrase <em>"lean not on your own understanding."</em> Your understanding — your analysis, your logic, your reading of the situation — is real and valuable. God does not despise it. But it is insufficient on its own. <strong>There are dimensions to your situation that only God can see.</strong> True peace is not the absence of confusion; it is the presence of trust in One who is not confused at all.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Heavenly Father, I come to the end of this week's work days with my plans and my questions in hand. There are things I am still trying to figure out — paths that are not yet clear, decisions that feel heavy.</p>
+            <p>Today I choose to trust You with all of my heart. Not just the spiritual parts — but my career, my finances, my relationships, my ambitions. All of it, laid before You. I acknowledge that my understanding is partial, and Yours is complete. I submit every plan, every hope, every worry to Your sovereign hands.</p>
+            <p>Make my paths straight, Lord. And where the path seems crooked, give me the peace to know that You are straightening what I cannot see. I will not be anxious. I will trust.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Write down your top 3 concerns this week. Physically hand each one to God in prayer.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Read Proverbs 3:1–12 in full — peace and guidance live in a lifestyle, not a single moment.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Identify one decision you have been making through anxiety. Reframe it through trust.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>End the day by reviewing what God guided — however small. Record one instance.</span></div>
+        </div>
+      </div>
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(3)">← Previous</button>
+        <span class="nav-foot-indicator">Day 5 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(5)">Next →</button>
+      </div>
+    </div>
+
+    <!-- DAY 6: SATURDAY -->
+    <div class="day-panel" id="day-5">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-gold"><span class="badge-day">Sat</span><span class="badge-num">6</span></div>
+        <div class="day-header-text">
+          <div class="day-title">Stillness as Guidance</div>
+          <div class="day-theme-label dtl-gold">Peace & Guidance · Psalm 46:10</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Scripture</div>
+        <div class="verse-card vc-gold">
+          <div class="verse-text">"Be still, and know that I am God; I will be exalted among the nations, I will be exalted in the earth."</div>
+          <div class="verse-ref">Psalm 46:10 — NIV</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Revelation</div>
+        <div class="revelation-text">
+          <p>Saturday is a gift — a breath of space in the rhythm of the week. The Hebrew word for "be still" here is <em>raphah</em>, which means to relax, to let go, to cease striving. This is not a passive suggestion. <strong>It is a command to stop trying to control the outcome.</strong></p>
+          <p>The revelation is that stillness is itself a form of guidance. When you are constantly moving and planning and analyzing, you cannot hear the quiet voice of God. His guidance often comes not in the whirlwind or the earthquake, but in the still, small voice (1 Kings 19:12). <strong>Today, your act of faith is to stop.</strong> To cease striving, to be present, to let God be God — and to discover that when you step back from the controls, He steps forward.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Lord, today I choose the discipline of stillness. In a world that rewards busyness, I make space for You. I lay down my agenda, my to-do list, my strategies. I release my grip on the outcomes I have been white-knuckling.</p>
+            <p>Speak to me in the quiet. Guide me through the peace that passes understanding. I acknowledge today that You are God — and I am not. That truth alone is my rest. You are in control of the nations, the systems, the situations I cannot influence. How much more, then, are You in control of my small, precious life?</p>
+            <p>I rest in You today. Restore me. Fill me. Guide me through the stillness.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Take a 20-minute walk without your phone. Simply observe creation and thank God.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Spend 15 minutes of contemplative prayer — listening rather than speaking.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Read 1 Kings 19:9–13 — Elijah's encounter with God in the still small voice.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Do something restful and creative that you love. Worship can be embodied, not only verbal.</span></div>
+        </div>
+      </div>
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(4)">← Previous</button>
+        <span class="nav-foot-indicator">Day 6 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(6)">Next →</button>
+      </div>
+    </div>
+
+    <!-- DAY 7: SUNDAY -->
+    <div class="day-panel" id="day-6">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-gold"><span class="badge-day">Sun</span><span class="badge-num">7</span></div>
+        <div class="day-header-text">
+          <div class="day-title">The Path Made Clear</div>
+          <div class="day-theme-label dtl-gold">Peace & Guidance · Week's Culmination</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Scripture</div>
+        <div class="verse-card vc-gold">
+          <div class="verse-text">"Your word is a lamp to my feet and a light to my path... The Lord will guide you always; he will satisfy your needs in a sun-scorched land."</div>
+          <div class="verse-ref">Psalm 119:105 · Isaiah 58:11 — NIV</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Revelation</div>
+        <div class="revelation-text">
+          <p>As you close this week, bring all three themes together. A lamp to your feet does not illuminate the entire road — it gives enough light for the next step. <strong>This is how God's guidance usually works: faithful step by faithful step.</strong> He does not always show you the whole plan because the whole plan requires a level of trust that is only built one step at a time.</p>
+          <p>You began this week invited into a fresh start. You were strengthened by God's own power. You submitted your plans to His peace and guidance. Now on the Lord's Day, you stand at a threshold: <strong>the week that is coming is another new thing God is doing.</strong> The God who began a good work in you will carry it to completion. Every theme you walked through is not a programme — it is a posture for life. Return to it endlessly. <em>He is always making things new, always renewing your strength, always making the path clear.</em></p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Sunday Prayer — Sending</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father God, I close this week in worship and in wonder. You have been faithful in ways I can see and in ways I cannot yet see. You have been doing a new thing — even when I could not perceive it. You have been my strength — even when I felt weak. You have been my guide — even when I felt lost.</p>
+            <p>I receive afresh today the identity You have given me: a child of the living God, equipped with Your Spirit, called to walk in Your purposes. As I enter another week, I go not in my own strength but in Yours. I go not in anxiety but in trust. I go not as one groping in the dark, but as one whose path is lit by Your Word.</p>
+            <p>Let everything I do in the coming days be an act of worship — my work, my rest, my relationships, my ambitions. May my life be evidence that You are real, You are good, and You make all things new.</p>
+            <p class="prayer-amen">Amen. Send me, Lord. I am ready.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label sl-gold">Weekly Reflection</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Review your journal entries from each day. What was God's consistent message to you?</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Share one insight from this week with a trusted brother or sister in faith.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Give thanks for three specific ways God moved this week — big or small.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Set your heart's intention for the week ahead, bringing it again to God in surrender.</span></div>
+        </div>
+      </div>
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(5)">← Previous</button>
+        <span class="nav-foot-indicator">Day 7 of 7</span>
+        <button class="nav-foot-btn" disabled>Complete ✓</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <blockquote>"He who calls you is faithful, and he will do it."</blockquote>
+  <span>1 Thessalonians 5:24 — May this week be one of genuine encounter with the living God.</span>
+</footer>
+
+<script>
+  let current = 0;
+
+  const dayData = [
+    { label: 'Mon', name: 'God Makes a Way' },
+    { label: 'Tue', name: 'Forget the Former' },
+    { label: 'Wed', name: 'Wings Like Eagles' },
+    { label: 'Thu', name: 'Strength, Not Perf.' },
+    { label: 'Fri', name: 'Trust Your Heart' },
+    { label: 'Sat', name: 'Stillness as Guidance' },
+    { label: 'Sun', name: 'Path Made Clear' },
+  ];
+
+  const mobileTabs = document.getElementById('mobileTabs');
+  dayData.forEach((d, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'mobile-tab-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = d.label;
+    btn.onclick = () => showDay(i);
+    mobileTabs.appendChild(btn);
+  });
+
+  function showDay(n) {
+    document.getElementById('day-' + current).classList.remove('active');
+    document.querySelectorAll('.day-nav-btn')[current].classList.remove('active');
+    document.querySelectorAll('.mobile-tab-btn')[current].classList.remove('active');
+    current = n;
+    document.getElementById('day-' + current).classList.add('active');
+    document.querySelectorAll('.day-nav-btn')[current].classList.add('active');
+    document.querySelectorAll('.mobile-tab-btn')[current].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
