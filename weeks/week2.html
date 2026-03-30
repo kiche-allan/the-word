@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 2 — Fear of God & Purpose · 7-Day Spiritual Programme</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF7F2;
+    --parchment: #F2EDE3;
+    --warm-border: #E0D8CC;
+    --deep-purple: #2E1F4E;
+    --royal-purple: #4A3170;
+    --soft-purple: #7B5EA7;
+    --lilac: #C4B5D9;
+    --lilac-light: #EAE4F2;
+    --gold: #BF8B3A;
+    --gold-light: #E8C97A;
+    --gold-pale: #FAF3E0;
+    --deep-teal: #1A3F40;
+    --teal: #2E6B6C;
+    --sage: #7FAF9A;
+    --sage-light: #C4D9CB;
+    --ink: #1A1610;
+    --charcoal: #3A332A;
+    --muted: #7A6E62;
+    --light-muted: #B0A89E;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Lato', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--deep-purple);
+    color: var(--cream);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20S0 28.954 0 40s8.954 20 20 20 20-8.954 20-20zm40 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-week {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lilac);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-verse {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--lilac);
+    margin-bottom: 0.3rem;
+  }
+  .hero-ref {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lilac);
+    opacity: 0.7;
+    margin-bottom: 2rem;
+  }
+  .theme-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .theme-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .tb-purple { background: rgba(196,181,217,0.18); color: var(--lilac); border: 1px solid rgba(196,181,217,0.35); }
+  .tb-gold   { background: rgba(191,139,58,0.18); color: var(--gold-light); border: 1px solid rgba(191,139,58,0.35); }
+  .tb-teal   { background: rgba(127,175,154,0.18); color: var(--sage); border: 1px solid rgba(127,175,154,0.35); }
+
+  /* ── LAYOUT ── */
+  .main {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: calc(100vh - 300px);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 210px;
+    flex-shrink: 0;
+    padding: 2rem 0 2rem 1.5rem;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+  }
+  .sidebar-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light-muted);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-left: 4px;
+  }
+  .day-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: left;
+    transition: background 0.2s;
+    margin-bottom: 2px;
+  }
+  .day-nav-btn:hover { background: var(--parchment); }
+  .day-nav-btn.active { background: var(--parchment); }
+  .day-nav-btn .dnb-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+    border: 1.5px solid; transition: all 0.2s;
+  }
+  .day-nav-btn.active .dnb-num, .day-nav-btn:hover .dnb-num { color: white; }
+  .dn-purple .dnb-num { border-color: var(--royal-purple); color: var(--royal-purple); }
+  .dn-purple.active .dnb-num, .dn-purple:hover .dnb-num { background: var(--royal-purple); }
+  .dn-gold   .dnb-num { border-color: var(--gold); color: var(--gold); }
+  .dn-gold.active   .dnb-num, .dn-gold:hover   .dnb-num { background: var(--gold); }
+  .dn-teal   .dnb-num { border-color: var(--teal); color: var(--teal); }
+  .dn-teal.active   .dnb-num, .dn-teal:hover   .dnb-num { background: var(--teal); }
+  .dnb-text { font-size: 12px; line-height: 1.3; }
+  .dnb-name { color: var(--charcoal); font-weight: 400; }
+  .dnb-theme { color: var(--light-muted); font-size: 11px; }
+  .day-nav-btn.active .dnb-name { font-weight: 700; color: var(--ink); }
+  .sidebar-divider { height: 1px; background: var(--warm-border); margin: 1rem 12px 1rem 4px; }
+
+  /* ── CONTENT ── */
+  .content {
+    flex: 1; padding: 2.5rem 2rem 4rem;
+    border-left: 1px solid var(--warm-border);
+    min-width: 0;
+  }
+  .day-panel { display: none; animation: fadeIn 0.35s ease; }
+  .day-panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── DAY HEADER ── */
+  .day-header-row {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 2rem; padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--warm-border);
+  }
+  .day-badge-large {
+    width: 60px; height: 60px; border-radius: 14px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    flex-shrink: 0; border: 1.5px solid; line-height: 1.1;
+  }
+  .dbl-purple { background: var(--lilac-light); border-color: var(--royal-purple); color: var(--deep-purple); }
+  .dbl-gold   { background: var(--gold-pale);   border-color: var(--gold);         color: #5C3D00; }
+  .dbl-teal   { background: #E3F0EE;            border-color: var(--teal);         color: var(--deep-teal); }
+  .badge-day  { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+  .badge-num  { font-family: var(--font-serif); font-size: 28px; font-weight: 600; }
+
+  .day-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 4px;
+  }
+  .day-theme-label {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .dtl-purple { color: var(--royal-purple); }
+  .dtl-gold   { color: var(--gold); }
+  .dtl-teal   { color: var(--teal); }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 1.75rem; }
+  .section-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--warm-border); }
+  .sl-purple { color: var(--royal-purple); }
+  .sl-gold   { color: var(--gold); }
+  .sl-teal   { color: var(--teal); }
+
+  /* ── THREE VERSES ── */
+  .verses-stack { display: flex; flex-direction: column; gap: 10px; }
+  .verse-card {
+    background: var(--parchment);
+    border: 1px solid var(--warm-border);
+    border-radius: 12px;
+    padding: 1.1rem 1.4rem;
+    border-left-width: 4px;
+  }
+  .vc-purple { border-left-color: var(--royal-purple); }
+  .vc-gold   { border-left-color: var(--gold); }
+  .vc-teal   { border-left-color: var(--teal); }
+  .verse-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .vl-purple { color: var(--royal-purple); }
+  .vl-gold   { color: var(--gold); }
+  .vl-teal   { color: var(--teal); }
+  .verse-text {
+    font-family: var(--font-serif);
+    font-size: 1.1rem; line-height: 1.7;
+    color: var(--charcoal); font-style: italic; margin-bottom: 6px;
+  }
+  .verse-ref {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase;
+  }
+
+  /* ── REVELATION ── */
+  .revelation-text { font-size: 15px; line-height: 1.85; color: var(--charcoal); }
+  .revelation-text p { margin-bottom: 0.9rem; }
+  .revelation-text strong { color: var(--ink); font-weight: 700; }
+  .revelation-text em { font-family: var(--font-serif); font-style: italic; font-size: 1.05em; }
+
+  /* ── PRAYER ── */
+  .prayer-card {
+    background: var(--parchment);
+    border: 1px solid var(--warm-border);
+    border-radius: 12px; padding: 1.5rem;
+  }
+  .prayer-text {
+    font-family: var(--font-serif);
+    font-size: 1.1rem; line-height: 1.9;
+    color: var(--charcoal); font-style: italic;
+  }
+  .prayer-text p { margin-bottom: 0.85rem; }
+  .prayer-amen {
+    font-style: normal; font-weight: 600;
+    color: var(--ink); font-size: 1rem; letter-spacing: 0.04em;
+  }
+
+  /* ── PRACTICES ── */
+  .practices-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  @media (max-width: 600px) { .practices-grid { grid-template-columns: 1fr; } }
+  .practice-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: var(--parchment); border: 1px solid var(--warm-border);
+    border-radius: 10px; padding: 12px 14px;
+    font-size: 13px; line-height: 1.55; color: var(--charcoal);
+  }
+  .pi-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+  .pd-purple { background: var(--royal-purple); }
+  .pd-gold   { background: var(--gold); }
+  .pd-teal   { background: var(--teal); }
+
+  /* ── NAV FOOTER ── */
+  .nav-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 2.5rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--warm-border);
+  }
+  .nav-foot-btn {
+    padding: 10px 20px; border: 1.5px solid var(--warm-border);
+    border-radius: 8px; background: transparent; color: var(--muted);
+    font-family: var(--font-sans); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s;
+  }
+  .nav-foot-btn:hover { background: var(--parchment); color: var(--ink); border-color: var(--muted); }
+  .nav-foot-btn:disabled { opacity: 0.3; cursor: default; }
+  .nav-foot-indicator { font-size: 12px; color: var(--light-muted); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep-purple); color: var(--lilac);
+    text-align: center; padding: 2rem; font-size: 13px;
+  }
+  footer blockquote {
+    font-family: var(--font-serif); font-size: 1.1rem;
+    font-style: italic; color: var(--lilac-light); margin-bottom: 0.5rem;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    .sidebar { display: none; }
+    .content { border-left: none; padding: 1.5rem 1rem 3rem; }
+    .main { flex-direction: column; }
+    .mobile-tabs {
+      display: flex; overflow-x: auto; gap: 0;
+      background: var(--parchment);
+      border-bottom: 1px solid var(--warm-border); padding: 0 1rem;
+    }
+    .mobile-tab-btn {
+      padding: 12px 14px; border: none; background: transparent;
+      font-size: 12px; font-weight: 700; color: var(--muted);
+      cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent;
+    }
+    .mobile-tab-btn.active { color: var(--ink); border-bottom-color: var(--royal-purple); }
+  }
+  @media (min-width: 721px) { .mobile-tabs { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-week">Week 2 · 7-Day Spiritual Programme</div>
+  <h1>The Fear of God<br>&amp; <em>Walking in Purpose</em></h1>
+  <div class="hero-verse">"The fear of the Lord is the beginning of wisdom."</div>
+  <div class="hero-ref">Proverbs 9:10</div>
+  <div class="theme-badges">
+    <span class="theme-badge tb-purple">Fear of the Lord · Mon</span>
+    <span class="theme-badge tb-purple">Overcoming Sin · Tue</span>
+    <span class="theme-badge tb-gold">Trusting God · Wed</span>
+    <span class="theme-badge tb-gold">Known & Called · Thu</span>
+    <span class="theme-badge tb-teal">Purpose & Reverence · Fri–Sun</span>
+  </div>
+</div>
+
+<div class="mobile-tabs" id="mobileTabs"></div>
+
+<div class="main">
+  <aside class="sidebar">
+    <div class="sidebar-label">Days</div>
+    <button class="day-nav-btn dn-purple active" onclick="showDay(0)">
+      <span class="dnb-num">1</span>
+      <span class="dnb-text"><span class="dnb-name">Monday</span><br><span class="dnb-theme">The Fear of God</span></span>
+    </button>
+    <button class="day-nav-btn dn-purple" onclick="showDay(1)">
+      <span class="dnb-num">2</span>
+      <span class="dnb-text"><span class="dnb-name">Tuesday</span><br><span class="dnb-theme">Overcoming Sin</span></span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <button class="day-nav-btn dn-gold" onclick="showDay(2)">
+      <span class="dnb-num">3</span>
+      <span class="dnb-text"><span class="dnb-name">Wednesday</span><br><span class="dnb-theme">Trusting God</span></span>
+    </button>
+    <button class="day-nav-btn dn-gold" onclick="showDay(3)">
+      <span class="dnb-num">4</span>
+      <span class="dnb-text"><span class="dnb-name">Thursday</span><br><span class="dnb-theme">Crafted for Works</span></span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <button class="day-nav-btn dn-teal" onclick="showDay(4)">
+      <span class="dnb-num">5</span>
+      <span class="dnb-text"><span class="dnb-name">Friday</span><br><span class="dnb-theme">The Whole Duty</span></span>
+    </button>
+    <button class="day-nav-btn dn-teal" onclick="showDay(5)">
+      <span class="dnb-num">6</span>
+      <span class="dnb-text"><span class="dnb-name">Saturday</span><br><span class="dnb-theme">Walking Humbly</span></span>
+    </button>
+    <button class="day-nav-btn dn-teal" onclick="showDay(6)">
+      <span class="dnb-num">7</span>
+      <span class="dnb-text"><span class="dnb-name">Sunday</span><br><span class="dnb-theme">Sent with Purpose</span></span>
+    </button>
+  </aside>
+
+  <main class="content">
+
+    <!-- ══════════════ DAY 1: MONDAY ══════════════ -->
+    <div class="day-panel active" id="day-0">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-purple"><span class="badge-day">Mon</span><span class="badge-num">1</span></div>
+        <div>
+          <div class="day-title">The Fear of the Lord</div>
+          <div class="day-theme-label dtl-purple">Holy Awe · The Beginning of Everything</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-purple">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-purple">
+            <div class="verse-label vl-purple">Anchor</div>
+            <div class="verse-text">"The fear of the Lord is the beginning of wisdom, and knowledge of the Holy One is understanding."</div>
+            <div class="verse-ref">Proverbs 9:10 — NIV</div>
+          </div>
+          <div class="verse-card vc-purple">
+            <div class="verse-label vl-purple">Foundation</div>
+            <div class="verse-text">"The fear of the Lord leads to life; then one rests content, untouched by trouble."</div>
+            <div class="verse-ref">Proverbs 19:23 — NIV</div>
+          </div>
+          <div class="verse-card vc-purple">
+            <div class="verse-label vl-purple">Invitation</div>
+            <div class="verse-text">"This is the one I esteem: he who is humble and contrite in spirit, and trembles at my word."</div>
+            <div class="verse-ref">Isaiah 66:2b — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-purple">Revelation</div>
+        <div class="revelation-text">
+          <p>The fear of God is one of the most misunderstood realities in the Christian life. For many, it conjures images of a distant, severe deity watching for mistakes — a fear that shrinks you. But the biblical fear of God is not that. <strong>It is not the fear of a slave before a cruel master. It is the awe of a child who suddenly glimpses the full height and depth of their Father's greatness.</strong></p>
+          <p>Notice that Proverbs 9:10 declares it the <em>beginning</em> of wisdom — not wisdom itself, but its starting point. Everything else flows from here. Your ability to make good decisions, to walk in purpose, to hear God's voice, to live with integrity — all of it is downstream of whether you have a right, reverent, wonder-filled understanding of who God is. <strong>A small view of God produces a small life. An accurate view of God — holy, infinite, near, loving — produces everything.</strong></p>
+          <p>Proverbs 19:23 reveals what holy fear actually produces: life, contentment, and rest untouched by trouble. And Isaiah 66:2 shows us the posture God Himself is looking for across the whole earth — <em>he who trembles at my word.</em> Not trembling with terror, but trembling with reverence. When you open Scripture, does something in you shift? Does the weight of it land? <strong>That trembling is not weakness — it is precisely what catches God's eye.</strong> Begin this week here, in wonder, and let everything else flow from that place.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-purple">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Holy Father, I begin this week not with a to-do list, but with a posture — face down in wonder before You. I confess that I have sometimes made You too small in my thinking. I have approached You casually when You are glorious. I have treated Your grace as ordinary when it is extraordinary beyond measure.</p>
+            <p>Teach me to fear You rightly. Not with a fear that paralyses, but with an awe that transforms. Let me see You today — not partially, not through the fog of my assumptions — but clearly, as You truly are: infinite in holiness, overflowing in mercy, closer than my next breath.</p>
+            <p>Displace every lesser fear in me — fear of failure, of people's opinions, of the unknown — and replace them all with this one clean, life-giving awe. Let the fear of You be the ground I stand on all week. Let it be the beginning of everything.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-purple">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-purple"></div><span>Read Isaiah 6:1–8 — Isaiah's encounter with holy fear and what it produced in him immediately.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-purple"></div><span>Journal: "In what areas of my life have I made God too small or too familiar?"</span></div>
+          <div class="practice-item"><div class="pi-dot pd-purple"></div><span>Sit in silence for 10 minutes with no words. Only receive. Let God be large in the quiet.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-purple"></div><span>Write three attributes of God that feel beyond your comprehension today. Meditate slowly on one.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" disabled>← Previous</button>
+        <span class="nav-foot-indicator">Day 1 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(1)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 2: TUESDAY ══════════════ -->
+    <div class="day-panel" id="day-1">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-purple"><span class="badge-day">Tue</span><span class="badge-num">2</span></div>
+        <div>
+          <div class="day-title">Overcoming Sin &amp; Temptation</div>
+          <div class="day-theme-label dtl-purple">The Battle Within · Victory in Christ</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-purple">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-purple">
+            <div class="verse-label vl-purple">Anchor</div>
+            <div class="verse-text">"No temptation has overtaken you except what is common to mankind. And God is faithful; he will not let you be tempted beyond what you can bear. But when you are tempted, he will also provide a way out so that you can endure it."</div>
+            <div class="verse-ref">1 Corinthians 10:13 — NIV</div>
+          </div>
+          <div class="verse-card vc-purple">
+            <div class="verse-label vl-purple">The Source of Power</div>
+            <div class="verse-text">"For sin shall no longer be your master, because you are not under the law, but under grace."</div>
+            <div class="verse-ref">Romans 6:14 — NIV</div>
+          </div>
+          <div class="verse-card vc-purple">
+            <div class="verse-label vl-purple">The Way of Escape</div>
+            <div class="verse-text">"Submit yourselves, then, to God. Resist the devil, and he will flee from you. Come near to God and he will come near to you."</div>
+            <div class="verse-ref">James 4:7–8a — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-purple">Revelation</div>
+        <div class="revelation-text">
+          <p>There is a lie that many believers carry silently: that their struggle with temptation is evidence that they are not truly saved, not truly spiritual, not truly close to God. Scripture dismantles this entirely. <strong>1 Corinthians 10:13 does not say that the mature Christian is never tempted. It says that every temptation comes with a way out, and that God is faithful to provide it.</strong> The struggle itself is not the problem. What you do with it is.</p>
+          <p>Romans 6:14 is a declaration of your legal standing before God. Sin is no longer your master — not because you became strong enough to defeat it, but because <em>you changed jurisdictions.</em> You moved from the domain of law into the domain of grace. Grace does not make sin acceptable; it makes righteousness possible. Under law, sin had dominion because failure was inevitable. Under grace, sin has lost its grip because Christ has already overcome it on your behalf. <strong>Your victory over sin is not something you are working toward — it is something you are working from.</strong></p>
+          <p>James 4:7–8 gives the practical sequence: submit first, then resist. Many believers try to resist the devil in their own strength and wonder why they keep losing. The order matters. Submission to God — the very posture of holy fear we sat in yesterday — is what precedes effective resistance. <em>Draw near to God. He will draw near to you. And in His nearness, lesser things lose their power.</em></p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-purple">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father, I come to You today with honesty about my struggles. There are areas where I have fallen, areas where I keep falling, and areas where I am tempted to believe that victory is not possible for someone like me. I reject that lie today in the name of Jesus.</p>
+            <p>Sin is not my master. You have declared it, and I receive it. I am not under law — I am under grace. And today I choose to live from that reality rather than toward it. I submit myself fully to You — my will, my desires, my patterns, my weaknesses. I place them all under Your authority.</p>
+            <p>Where I am tempted today, remind me that You are faithful. Show me the way of escape. Let me be someone who runs toward You in the moment of temptation, not away from You in shame after it. Your nearness is my victory.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-purple">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-purple"></div><span>Read Romans 6:1–14 in full. Let Paul's argument about being dead to sin and alive in Christ settle deeply.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-purple"></div><span>Identify your most consistent area of temptation. Bring it specifically and honestly before God — no vague confessions today.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-purple"></div><span>Journal: "What does the 'way of escape' God provides look like practically in my most common temptation?"</span></div>
+          <div class="practice-item"><div class="pi-dot pd-purple"></div><span>Find an accountability partner or trusted friend. Share one area you are believing God for breakthrough. Invite their prayer.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(0)">← Previous</button>
+        <span class="nav-foot-indicator">Day 2 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(2)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 3: WEDNESDAY ══════════════ -->
+    <div class="day-panel" id="day-2">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-gold"><span class="badge-day">Wed</span><span class="badge-num">3</span></div>
+        <div>
+          <div class="day-title">Trusting God in Difficult Circumstances</div>
+          <div class="day-theme-label dtl-gold">Anchored Faith · When the Storm Is Real</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">Anchor</div>
+            <div class="verse-text">"Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight."</div>
+            <div class="verse-ref">Proverbs 3:5–6 — NIV</div>
+          </div>
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">Sustaining Promise</div>
+            <div class="verse-text">"And we know that in all things God works for the good of those who love him, who have been called according to his purpose."</div>
+            <div class="verse-ref">Romans 8:28 — NIV</div>
+          </div>
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">The Peace That Guards</div>
+            <div class="verse-text">"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus."</div>
+            <div class="verse-ref">Philippians 4:6–7 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Revelation</div>
+        <div class="revelation-text">
+          <p>Trust is easy when everything is going well. The test — and the invitation — comes when the path you are on makes no sense, when the circumstances feel like contradiction, when God seems silent precisely when you need Him to be loudest. <strong>Proverbs 3:5–6 does not say trust God when you understand what He is doing. It says trust Him with all your heart and lean not on your own understanding.</strong> This is a direct, conscious act of surrender — not blind naivety, but anchored confidence in a God whose vision is higher than yours.</p>
+          <p>Romans 8:28 is perhaps the most quietly radical verse in the New Testament. Notice what it does not say — it does not say all things are good. Some circumstances are genuinely painful, genuinely unjust, genuinely hard. <strong>But it says God works all things together for good.</strong> The word "works" is the Greek <em>synergei</em> — He is actively, continuously, sovereignly weaving everything — including the things that have broken your heart — into something redemptive. You cannot always see the weaving from the inside of the tapestry. But He sees it from above.</p>
+          <p>Philippians 4:6–7 gives the daily practice of trust: bring everything to God in prayer, with thanksgiving even in the difficulty, and receive in return a peace that <em>transcends understanding</em> — a peace that does not require you to understand the situation in order to experience it. <strong>This is the gift of trusting God in hard places: not that the storm immediately stops, but that you are guarded in the middle of it.</strong></p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father, I bring You today the things I do not understand. The prayers that have not yet been answered the way I hoped. The circumstances that still feel unresolved. The silence that has sometimes felt like absence. I lay all of it before You — not with resignation, but with trust.</p>
+            <p>I choose, today, to lean not on my own understanding. My understanding is limited. My vision is partial. But You see the end from the beginning, and You are working in the in-between. I believe — help my unbelief — that You are weaving even this into something good.</p>
+            <p>Guard my heart with Your peace today. Not the peace that comes from resolution, but the peace that comes from knowing that You hold all things. I will not be anxious. I present my requests to You with thanksgiving — even now — because You are worthy of thanks in every season.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Read Romans 8:18–39 in full. Let Paul's argument build — suffering, Spirit, hope, and the unshakeable love of God.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Name the most difficult circumstance you are currently navigating. Write it down, then write Romans 8:28 beneath it.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Practice Philippians 4:6 literally today: present one specific worry to God with a specific act of thanksgiving alongside it.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Read the story of Joseph (Genesis 37–50 in summary) as a testimony of God's faithfulness through impossible circumstances.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(1)">← Previous</button>
+        <span class="nav-foot-indicator">Day 3 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(3)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 4: THURSDAY ══════════════ -->
+    <div class="day-panel" id="day-3">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-gold"><span class="badge-day">Thu</span><span class="badge-num">4</span></div>
+        <div>
+          <div class="day-title">Crafted for Good Works</div>
+          <div class="day-theme-label dtl-gold">Known & Called · Day Two</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">Anchor</div>
+            <div class="verse-text">"For we are God's handiwork, created in Christ Jesus to do good works, which God prepared in advance for us to do."</div>
+            <div class="verse-ref">Ephesians 2:10 — NIV</div>
+          </div>
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">The Call Is Irrevocable</div>
+            <div class="verse-text">"For God's gifts and his call are irrevocable."</div>
+            <div class="verse-ref">Romans 11:29 — NIV</div>
+          </div>
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">Completion</div>
+            <div class="verse-text">"Being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus."</div>
+            <div class="verse-ref">Philippians 1:6 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Revelation</div>
+        <div class="revelation-text">
+          <p>Ephesians 2:10 contains one of the most powerful words in the New Testament. The word translated "handiwork" is the Greek <em>poiema</em> — from which we get our word "poem." <strong>You are God's poem. His masterpiece. His creative work.</strong> Paul is saying: before he talks about what you are called to do, he is insisting on what you are called to be — a work of art, created in Christ Jesus.</p>
+          <p>The works were prepared in advance. Not vaguely. Not approximately. Specifically, intentionally, thoughtfully. <strong>God has already laid out the path; your task is not to invent your purpose but to discover and walk in what He has already prepared.</strong> And Romans 11:29 closes the door on every lie that says God has given up on you or revoked your calling because of what you have done or failed to do. His gifts and His call are irrevocable.</p>
+          <p>Philippians 1:6 provides the deepest reassurance: <em>He who began a good work in you will carry it to completion.</em> Your purpose is not your responsibility to sustain — it is His commitment to complete. You are a poem He has not finished writing yet.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father, I receive this word today with both hands open. I am Your handiwork — Your poem — and You do not abandon unfinished work. What You have started in me, You will complete.</p>
+            <p>I release the anxiety of having to figure out my purpose on my own. You prepared the works in advance. My calling is not a mystery I must solve — it is a path You have already laid. Give me the eyes to see it, the courage to walk it, and the patience to trust You when the next step is not yet visible.</p>
+            <p>And where I have disqualified myself — told myself that I have forfeited my calling through failure or inconsistency — I receive Your Word: the call is irrevocable. You have not changed Your mind about me.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Read Ephesians 2:1–10 in full. Notice how Paul moves from what we were to what we now are.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Journal: "What gifts, passions, or abilities has God placed in me that feel connected to a larger purpose?"</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Write down one "good work" — however small — that you sense God is inviting you to step into this season.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Pray Philippians 1:6 back to God as a declaration of trust, not a request.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(2)">← Previous</button>
+        <span class="nav-foot-indicator">Day 4 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(4)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 5: FRIDAY ══════════════ -->
+    <div class="day-panel" id="day-4">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-teal"><span class="badge-day">Fri</span><span class="badge-num">5</span></div>
+        <div>
+          <div class="day-title">The Whole Duty of Man</div>
+          <div class="day-theme-label dtl-teal">Purpose & Reverence · Day One</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-teal">
+            <div class="verse-label vl-teal">Anchor</div>
+            <div class="verse-text">"Fear God and keep his commandments, for this is the duty of all mankind."</div>
+            <div class="verse-ref">Ecclesiastes 12:13 — NIV</div>
+          </div>
+          <div class="verse-card vc-teal">
+            <div class="verse-label vl-teal">Purpose Lived Out</div>
+            <div class="verse-text">"He has shown you, O mortal, what is good. And what does the Lord require of you? To act justly and to love mercy and to walk humbly with your God."</div>
+            <div class="verse-ref">Micah 6:8 — NIV</div>
+          </div>
+          <div class="verse-card vc-teal">
+            <div class="verse-label vl-teal">Motivated by Awe</div>
+            <div class="verse-text">"Whatever you do, work at it with all your heart, as working for the Lord, not for human masters."</div>
+            <div class="verse-ref">Colossians 3:23 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Revelation</div>
+        <div class="revelation-text">
+          <p>Ecclesiastes is the book of a man who searched everywhere for purpose and came back with dust in his hands — until the very last verse. After chapters exploring pleasure, wealth, wisdom, work, and legacy, Solomon lands here: <strong>fear God and keep His commandments. This is everything.</strong> Not as a religious formality — as the distilled conclusion of a lifetime of searching.</p>
+          <p>Micah 6:8 gives this same truth three dimensions: act justly, love mercy, walk humbly. These three are not three separate callings. <strong>They are one integrated posture — a life that is correctly oriented toward God (humility) and therefore correctly oriented toward people (justice and mercy).</strong> Purpose is not primarily about your career or your platform. It is about the quality of your being in every interaction.</p>
+          <p>Colossians 3:23 is the daily application: whatever you do — your research, your work, your relationships, your small invisible acts — do it with your whole heart, as if God Himself is watching, because He is. The fear of the Lord transforms your motivation. <em>You are no longer performing for an audience of people. You are working for an audience of One.</em></p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father, I have sometimes looked for my purpose in grand visions and dramatic moments. But Your Word brings me back to something simpler and deeper: fear You, walk humbly, love mercy, do justice. Let this be the shape of my days.</p>
+            <p>Today I consecrate my ordinary. Every email, every conversation, every task — I offer it to You as an act of worship. Let the fear of You purify my motivations. Let me not work for applause or approval, but for the quiet satisfaction of knowing that You are pleased.</p>
+            <p>And where my purposes have been small and self-serving, expand them. Let me see that the good works You prepared for me include the way I treat the people around me today — the small, uncelebrated acts of justice and mercy that no one will notice but You.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Read Ecclesiastes 1:1–2 and 12:9–14. Let the journey from vanity to conclusion speak to you.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Reflect: In your work this week, were you performing for people or working for God? Be honest.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Identify one act of justice or mercy you can do today — specific, practical, small. Do it.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Journal: "What would my ordinary days look like if I truly believed God was my only audience?"</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(3)">← Previous</button>
+        <span class="nav-foot-indicator">Day 5 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(5)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 6: SATURDAY ══════════════ -->
+    <div class="day-panel" id="day-5">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-teal"><span class="badge-day">Sat</span><span class="badge-num">6</span></div>
+        <div>
+          <div class="day-title">Walking Humbly Before Your God</div>
+          <div class="day-theme-label dtl-teal">Purpose & Reverence · Day Two</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-teal">
+            <div class="verse-label vl-teal">Anchor</div>
+            <div class="verse-text">"Humble yourselves before the Lord, and he will lift you up."</div>
+            <div class="verse-ref">James 4:10 — NIV</div>
+          </div>
+          <div class="verse-card vc-teal">
+            <div class="verse-label vl-teal">The Shape of Greatness</div>
+            <div class="verse-text">"For those who exalt themselves will be humbled, and those who humble themselves will be exalted."</div>
+            <div class="verse-ref">Matthew 23:12 — NIV</div>
+          </div>
+          <div class="verse-card vc-teal">
+            <div class="verse-label vl-teal">The Posture God Honours</div>
+            <div class="verse-text">"This is the one I esteem: he who is humble and contrite in spirit, and trembles at my word."</div>
+            <div class="verse-ref">Isaiah 66:2b — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Revelation</div>
+        <div class="revelation-text">
+          <p>Saturday is a day of rest and reflection — the perfect day for humility. Because humility, at its core, is not self-deprecation; it is <strong>accurate self-knowledge in the light of God's greatness.</strong> You are deeply valuable — God's poem, engraved on His palms — and simultaneously utterly dependent on Him for every breath. Both are true. Holding them together is what the Bible calls humility.</p>
+          <p>Isaiah 66:2 contains a phrase that should stop every believer in their tracks: <em>he who trembles at my word.</em> This is the fear of God made concrete — not trembling with terror, but trembling with reverence. <strong>When you open Scripture, does something in you shift? Does the weight of it land?</strong> That trembling is not weakness. It is precisely the posture God says He esteems. He is looking at the whole earth, and this is what catches His eye.</p>
+          <p>Purpose and humility are not opposites. The most purposeful people in Scripture — Moses, David, Paul — were also among the most humbled by their encounters with God. <em>The deeper your awe of God, the more clearly He can entrust you with His works.</em> You cannot carry great purpose with a proud spirit. The vessel must be humble enough to hold it.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Lord, on this day of rest I come with open hands and a quiet spirit. I lay down the need to be great in the eyes of people, and I ask instead for the greatness that comes from Your hand — the lifting that follows true humbling.</p>
+            <p>Search me today. Where have I been proud — subtly, quietly proud — in ways I have not wanted to acknowledge? Where have I taken credit for what You did? Where have I elevated my own understanding above Your word? Show me with mercy, not condemnation. I want to see clearly.</p>
+            <p>Let me be the kind of person who trembles at Your word. Not because I am fearful and small, but because I understand the weight of what You are saying and I take it seriously. Esteem me as You esteem the humble — not for my sake, but for the sake of what You want to do through me.</p>
+            <p class="prayer-amen">In Jesus' name, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Read Numbers 12:3 and reflect on Moses — a man of great purpose and great meekness. What can you learn?</span></div>
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Ask a trusted person in your life: "Where do you see pride operating in me?" Receive the answer without defending yourself.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Take a long, slow walk. No podcast. No music. Just you, creation, and a listening posture before God.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Journal: "What would I do differently this week if humility, not reputation, was my operating principle?"</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(4)">← Previous</button>
+        <span class="nav-foot-indicator">Day 6 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(6)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 7: SUNDAY ══════════════ -->
+    <div class="day-panel" id="day-6">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-teal"><span class="badge-day">Sun</span><span class="badge-num">7</span></div>
+        <div>
+          <div class="day-title">Sent: Known, Feared, Purposeful</div>
+          <div class="day-theme-label dtl-teal">Purpose & Reverence · Week's Culmination</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-teal">
+            <div class="verse-label vl-teal">Anchor</div>
+            <div class="verse-text">"As the Father has sent me, I am sending you."</div>
+            <div class="verse-ref">John 20:21b — NIV</div>
+          </div>
+          <div class="verse-card vc-teal">
+            <div class="verse-label vl-teal">The Fear That Sends</div>
+            <div class="verse-text">"Since, then, we know what it is to fear the Lord, we try to persuade others."</div>
+            <div class="verse-ref">2 Corinthians 5:11a — NIV</div>
+          </div>
+          <div class="verse-card vc-teal">
+            <div class="verse-label vl-teal">The Promise That Sustains</div>
+            <div class="verse-text">"The Lord Almighty is the one you are to regard as holy, he is the one you are to fear — he is the one who will be your sanctuary."</div>
+            <div class="verse-ref">Isaiah 8:13–14a — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Revelation</div>
+        <div class="revelation-text">
+          <p>On the Lord's Day, all the threads of this week are woven into one. You have sat with the fear of God — understanding what it is and what it produces. You have received the truth that you are known before birth and called by name. You have seen that your purpose is already prepared and irrevocable. You have been invited into humility as the posture that makes you usable.</p>
+          <p>Now Jesus speaks the commission: <em>as the Father has sent me, I am sending you.</em> <strong>This is not a vague spiritual concept. It is a direct, personal, present-tense sending.</strong> And 2 Corinthians 5:11 shows us something remarkable: it is the fear of the Lord that fuels the mission. Paul says, because we know what it is to fear the Lord, we try to persuade others. The awe of God is not a private, interior experience that keeps you sequestered in quiet reflection. <em>It is the very thing that propels you outward into the world.</em></p>
+          <p>And Isaiah 8:14 closes the week with the most tender promise: the God you fear will be your sanctuary. The One before whom you bow is the One in whom you are completely safe. <strong>You are sent — but you are never sent alone.</strong> The fear of God is not a burden. It is a shelter. Go this week carrying both: the holy weight of His greatness, and the warm security of His nearness.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Sunday Prayer — Sending</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father, I close this week undone — in the very best way. You have shown me Your greatness and Your nearness. You have reminded me that I was known before I was formed, called before I could respond, and equipped before I even understood the assignment.</p>
+            <p>I go into this coming week as someone who has sat with You. I carry the fear of You not as a weight but as a compass — it will keep me oriented when the noise of life tries to pull me off course. It will purify my motivations when I am tempted to work for lesser audiences. It will be my sanctuary when the pressures of purpose feel too great.</p>
+            <p>Send me, Lord. Into my work, my relationships, my community, my calling — send me as You sent the Son: with full knowledge of the Father's heart, sustained by the Father's presence, anchored in the Father's purpose. Let my life this week be a poem that reflects its Author.</p>
+            <p class="prayer-amen">In Jesus' name — with holy fear and joyful purpose — Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-teal">Weekly Reflection</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Review your journal from all seven days. What single sentence captures what God said to you this week?</span></div>
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Who in your life needs to hear something from these themes? Share one insight with them today.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Name one concrete way the fear of God will change how you work or relate in the week ahead.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-teal"></div><span>Commit one verse from this week to memory. Let it be the verse that cut deepest.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(5)">← Previous</button>
+        <span class="nav-foot-indicator">Day 7 of 7</span>
+        <button class="nav-foot-btn" disabled>Complete ✓</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <blockquote>"This is the one I esteem: he who is humble and contrite in spirit, and trembles at my word."</blockquote>
+  <span>Isaiah 66:2 — Go this week as one who has stood in His presence and been sent by name.</span>
+</footer>
+
+<script>
+  let current = 0;
+  const dayData = [
+    { label: 'Mon' }, { label: 'Tue' }, { label: 'Wed' },
+    { label: 'Thu' }, { label: 'Fri' }, { label: 'Sat' }, { label: 'Sun' }
+  ];
+
+  const mobileTabs = document.getElementById('mobileTabs');
+  dayData.forEach((d, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'mobile-tab-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = d.label;
+    btn.onclick = () => showDay(i);
+    mobileTabs.appendChild(btn);
+  });
+
+  function showDay(n) {
+    document.getElementById('day-' + current).classList.remove('active');
+    document.querySelectorAll('.day-nav-btn')[current].classList.remove('active');
+    document.querySelectorAll('.mobile-tab-btn')[current].classList.remove('active');
+    current = n;
+    document.getElementById('day-' + current).classList.add('active');
+    document.querySelectorAll('.day-nav-btn')[current].classList.add('active');
+    document.querySelectorAll('.mobile-tab-btn')[current].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
