@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easter Week — The Cross, The Tomb & The Resurrection · 7-Day Spiritual Programme</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF7F2;
+    --parchment: #F2EDE3;
+    --warm-border: #E0D8CC;
+
+    --crimson-deep: #3D0A0A;
+    --crimson: #7A1A1A;
+    --crimson-mid: #A83232;
+    --crimson-light: #E8C4C4;
+    --crimson-pale: #FAF0F0;
+
+    --midnight: #0F1A2E;
+    --slate: #2C3E5A;
+    --steel: #6B85A3;
+    --silver: #C4CDD9;
+    --silver-pale: #EEF1F5;
+
+    --gold: #BF8B3A;
+    --gold-light: #E8C97A;
+    --gold-pale: #FAF3E0;
+    --gold-deep: #7A5010;
+
+    --resurrection: #1A3D2E;
+    --forest: #2E6B50;
+    --sage: #7FAF94;
+    --sage-light: #C4D9CC;
+    --sage-pale: #EBF5EF;
+
+    --ink: #1A1610;
+    --charcoal: #3A332A;
+    --muted: #7A6E62;
+    --light-muted: #B0A89E;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Lato', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--crimson-deep);
+    color: var(--cream);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M30 0v60M0 30h60' stroke='%23fff' stroke-opacity='0.04' stroke-width='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-week {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.18;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-verse {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--crimson-light);
+    margin-bottom: 0.25rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-ref {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    opacity: 0.65;
+    margin-bottom: 2rem;
+  }
+  .theme-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .theme-badge {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .tb-crimson  { background: rgba(232,196,196,0.15); color: var(--crimson-light); border: 1px solid rgba(232,196,196,0.3); }
+  .tb-slate    { background: rgba(196,205,217,0.15); color: var(--silver); border: 1px solid rgba(196,205,217,0.3); }
+  .tb-gold     { background: rgba(232,201,122,0.15); color: var(--gold-light); border: 1px solid rgba(232,201,122,0.3); }
+  .tb-forest   { background: rgba(127,175,148,0.15); color: var(--sage); border: 1px solid rgba(127,175,148,0.3); }
+
+  /* ── LAYOUT ── */
+  .main {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: calc(100vh - 320px);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 215px;
+    flex-shrink: 0;
+    padding: 2rem 0 2rem 1.5rem;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+  }
+  .sidebar-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light-muted);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-left: 4px;
+  }
+  .day-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: left;
+    transition: background 0.2s;
+    margin-bottom: 2px;
+  }
+  .day-nav-btn:hover { background: var(--parchment); }
+  .day-nav-btn.active { background: var(--parchment); }
+  .day-nav-btn .dnb-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+    border: 1.5px solid; transition: all 0.2s;
+  }
+  .day-nav-btn.active .dnb-num,
+  .day-nav-btn:hover .dnb-num { color: white; }
+
+  .dn-crimson .dnb-num { border-color: var(--crimson); color: var(--crimson); }
+  .dn-crimson.active .dnb-num, .dn-crimson:hover .dnb-num { background: var(--crimson); }
+  .dn-slate .dnb-num { border-color: var(--slate); color: var(--slate); }
+  .dn-slate.active .dnb-num, .dn-slate:hover .dnb-num { background: var(--slate); }
+  .dn-gold .dnb-num { border-color: var(--gold); color: var(--gold); }
+  .dn-gold.active .dnb-num, .dn-gold:hover .dnb-num { background: var(--gold); }
+  .dn-forest .dnb-num { border-color: var(--forest); color: var(--forest); }
+  .dn-forest.active .dnb-num, .dn-forest:hover .dnb-num { background: var(--forest); }
+
+  .dnb-text { font-size: 12px; line-height: 1.3; }
+  .dnb-name { color: var(--charcoal); font-weight: 400; }
+  .dnb-theme { color: var(--light-muted); font-size: 11px; }
+  .day-nav-btn.active .dnb-name { font-weight: 700; color: var(--ink); }
+  .sidebar-divider { height: 1px; background: var(--warm-border); margin: 1rem 12px 1rem 4px; }
+
+  /* ── CONTENT ── */
+  .content {
+    flex: 1; padding: 2.5rem 2rem 4rem;
+    border-left: 1px solid var(--warm-border);
+    min-width: 0;
+  }
+  .day-panel { display: none; animation: fadeIn 0.35s ease; }
+  .day-panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── DAY HEADER ── */
+  .day-header-row {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 2rem; padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--warm-border);
+  }
+  .day-badge-large {
+    width: 60px; height: 60px; border-radius: 14px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    flex-shrink: 0; border: 1.5px solid; line-height: 1.1;
+  }
+  .dbl-crimson { background: var(--crimson-pale); border-color: var(--crimson); color: var(--crimson-deep); }
+  .dbl-slate   { background: var(--silver-pale);  border-color: var(--slate);   color: var(--midnight); }
+  .dbl-gold    { background: var(--gold-pale);    border-color: var(--gold);    color: var(--gold-deep); }
+  .dbl-forest  { background: var(--sage-pale);    border-color: var(--forest);  color: var(--resurrection); }
+  .badge-day { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+  .badge-num { font-family: var(--font-serif); font-size: 28px; font-weight: 600; }
+
+  .day-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 4px;
+  }
+  .day-theme-label {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .dtl-crimson { color: var(--crimson); }
+  .dtl-slate   { color: var(--slate); }
+  .dtl-gold    { color: var(--gold); }
+  .dtl-forest  { color: var(--forest); }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 1.75rem; }
+  .section-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--warm-border); }
+  .sl-crimson { color: var(--crimson); }
+  .sl-slate   { color: var(--slate); }
+  .sl-gold    { color: var(--gold); }
+  .sl-forest  { color: var(--forest); }
+
+  /* ── THREE VERSES ── */
+  .verses-stack { display: flex; flex-direction: column; gap: 10px; }
+  .verse-card {
+    background: var(--parchment);
+    border: 1px solid var(--warm-border);
+    border-radius: 12px;
+    padding: 1.1rem 1.4rem;
+    border-left-width: 4px;
+  }
+  .vc-crimson { border-left-color: var(--crimson); }
+  .vc-slate   { border-left-color: var(--slate); }
+  .vc-gold    { border-left-color: var(--gold); }
+  .vc-forest  { border-left-color: var(--forest); }
+  .verse-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .vl-crimson { color: var(--crimson); }
+  .vl-slate   { color: var(--slate); }
+  .vl-gold    { color: var(--gold); }
+  .vl-forest  { color: var(--forest); }
+  .verse-text {
+    font-family: var(--font-serif);
+    font-size: 1.1rem; line-height: 1.7;
+    color: var(--charcoal); font-style: italic; margin-bottom: 6px;
+  }
+  .verse-ref {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase;
+  }
+
+  /* ── REVELATION ── */
+  .revelation-text { font-size: 15px; line-height: 1.85; color: var(--charcoal); }
+  .revelation-text p { margin-bottom: 0.9rem; }
+  .revelation-text strong { color: var(--ink); font-weight: 700; }
+  .revelation-text em { font-family: var(--font-serif); font-style: italic; font-size: 1.05em; }
+
+  /* ── PRAYER ── */
+  .prayer-card {
+    background: var(--parchment);
+    border: 1px solid var(--warm-border);
+    border-radius: 12px; padding: 1.5rem;
+  }
+  .prayer-text {
+    font-family: var(--font-serif);
+    font-size: 1.1rem; line-height: 1.9;
+    color: var(--charcoal); font-style: italic;
+  }
+  .prayer-text p { margin-bottom: 0.85rem; }
+  .prayer-amen {
+    font-style: normal; font-weight: 600;
+    color: var(--ink); font-size: 1rem; letter-spacing: 0.04em;
+  }
+
+  /* ── PRACTICES ── */
+  .practices-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  @media (max-width: 600px) { .practices-grid { grid-template-columns: 1fr; } }
+  .practice-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: var(--parchment); border: 1px solid var(--warm-border);
+    border-radius: 10px; padding: 12px 14px;
+    font-size: 13px; line-height: 1.55; color: var(--charcoal);
+  }
+  .pi-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+  .pd-crimson { background: var(--crimson); }
+  .pd-slate   { background: var(--slate); }
+  .pd-gold    { background: var(--gold); }
+  .pd-forest  { background: var(--forest); }
+
+  /* ── NAV FOOTER ── */
+  .nav-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 2.5rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--warm-border);
+  }
+  .nav-foot-btn {
+    padding: 10px 20px; border: 1.5px solid var(--warm-border);
+    border-radius: 8px; background: transparent; color: var(--muted);
+    font-family: var(--font-sans); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s;
+  }
+  .nav-foot-btn:hover { background: var(--parchment); color: var(--ink); border-color: var(--muted); }
+  .nav-foot-btn:disabled { opacity: 0.3; cursor: default; }
+  .nav-foot-indicator { font-size: 12px; color: var(--light-muted); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--resurrection);
+    color: var(--sage-light);
+    text-align: center; padding: 2rem; font-size: 13px;
+  }
+  footer blockquote {
+    font-family: var(--font-serif); font-size: 1.15rem;
+    font-style: italic; color: #E8F5EE; margin-bottom: 0.5rem;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    .sidebar { display: none; }
+    .content { border-left: none; padding: 1.5rem 1rem 3rem; }
+    .main { flex-direction: column; }
+    .mobile-tabs {
+      display: flex; overflow-x: auto; gap: 0;
+      background: var(--parchment);
+      border-bottom: 1px solid var(--warm-border); padding: 0 1rem;
+    }
+    .mobile-tab-btn {
+      padding: 12px 14px; border: none; background: transparent;
+      font-size: 12px; font-weight: 700; color: var(--muted);
+      cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent;
+    }
+    .mobile-tab-btn.active { color: var(--ink); border-bottom-color: var(--crimson); }
+  }
+  @media (min-width: 721px) { .mobile-tabs { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-week">Easter Monday · Reflections from Holy Week</div>
+  <h1>The Cross, The Tomb<br>&amp; <em>The Resurrection</em></h1>
+  <div class="hero-verse">"He is not here; he has risen, just as he said."</div>
+  <div class="hero-ref">Matthew 28:6</div>
+  <div class="theme-badges">
+    <span class="theme-badge tb-crimson">The Cross · Mon–Tue</span>
+    <span class="theme-badge tb-slate">The Tomb · Wed–Thu</span>
+    <span class="theme-badge tb-gold">The Resurrection · Fri–Sat</span>
+    <span class="theme-badge tb-forest">Sent as Witnesses · Sun</span>
+  </div>
+</div>
+
+<div class="mobile-tabs" id="mobileTabs"></div>
+
+<div class="main">
+  <aside class="sidebar">
+    <div class="sidebar-label">Reflections</div>
+    <button class="day-nav-btn dn-crimson active" onclick="showDay(0)">
+      <span class="dnb-num">1</span>
+      <span class="dnb-text"><span class="dnb-name">Monday</span><br><span class="dnb-theme">Weight of the Cross</span></span>
+    </button>
+    <button class="day-nav-btn dn-crimson" onclick="showDay(1)">
+      <span class="dnb-num">2</span>
+      <span class="dnb-text"><span class="dnb-name">Tuesday</span><br><span class="dnb-theme">It Is Finished</span></span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <button class="day-nav-btn dn-slate" onclick="showDay(2)">
+      <span class="dnb-num">3</span>
+      <span class="dnb-text"><span class="dnb-name">Wednesday</span><br><span class="dnb-theme">Holy Saturday</span></span>
+    </button>
+    <button class="day-nav-btn dn-slate" onclick="showDay(3)">
+      <span class="dnb-num">4</span>
+      <span class="dnb-text"><span class="dnb-name">Thursday</span><br><span class="dnb-theme">He Descended</span></span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <button class="day-nav-btn dn-gold" onclick="showDay(4)">
+      <span class="dnb-num">5</span>
+      <span class="dnb-text"><span class="dnb-name">Friday</span><br><span class="dnb-theme">Resurrection Changes All</span></span>
+    </button>
+    <button class="day-nav-btn dn-gold" onclick="showDay(5)">
+      <span class="dnb-num">6</span>
+      <span class="dnb-text"><span class="dnb-name">Saturday</span><br><span class="dnb-theme">Resurrection Life, Now</span></span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <button class="day-nav-btn dn-forest" onclick="showDay(6)">
+      <span class="dnb-num">7</span>
+      <span class="dnb-text"><span class="dnb-name">Sunday</span><br><span class="dnb-theme">Sent as Witnesses</span></span>
+    </button>
+  </aside>
+
+  <main class="content">
+
+    <!-- ══════════════ DAY 1: MONDAY ══════════════ -->
+    <div class="day-panel active" id="day-0">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-crimson"><span class="badge-day">Mon</span><span class="badge-num">1</span></div>
+        <div>
+          <div class="day-title">The Weight of the Cross</div>
+          <div class="day-theme-label dtl-crimson">The Crucifixion · What Love Actually Cost</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-crimson">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-crimson">
+            <div class="verse-label vl-crimson">Anchor</div>
+            <div class="verse-text">"But he was pierced for our transgressions, he was crushed for our iniquities; the punishment that brought us peace was on him, and by his wounds we are healed."</div>
+            <div class="verse-ref">Isaiah 53:5 — NIV</div>
+          </div>
+          <div class="verse-card vc-crimson">
+            <div class="verse-label vl-crimson">The Measure of Love</div>
+            <div class="verse-text">"But God demonstrates his own love for us in this: while we were still sinners, Christ died for us."</div>
+            <div class="verse-ref">Romans 5:8 — NIV</div>
+          </div>
+          <div class="verse-card vc-crimson">
+            <div class="verse-label vl-crimson">The Cry from the Cross</div>
+            <div class="verse-text">"My God, my God, why have you forsaken me?"</div>
+            <div class="verse-ref">Matthew 27:46 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-crimson">Revelation</div>
+        <div class="revelation-text">
+          <p>We return this Easter Monday not to a theological lecture but to the cross itself — slowly, without rushing past it. Because what happened at Golgotha was not a stepping stone — it was the hinge of all of history. <strong>Isaiah 53 was written seven hundred years before the crucifixion, and yet it reads like an eyewitness account.</strong> Pierced. Crushed. Punished. Wounded. Every word is deliberate, every word is personal — and every word is for you.</p>
+          <p>Romans 5:8 contains the single most staggering sentence in all of theology. Not that Christ died for the righteous. Not that He died for those who had already cleaned up their lives. <strong>While we were still sinners — in the full ugliness of our rebellion — He died for us.</strong> The cross was not God's response to your improvement. It was God's response to your need. You did not have to become worthy of it. It was given to you while you were at your worst.</p>
+          <p>And Matthew 27:46 brings us to the most agonising moment of all — the cry of dereliction. Jesus, quoting Psalm 22, cried out in the darkness: <em>My God, my God, why have you forsaken me?</em> Here is the revelation that should stop you completely: <strong>Christ experienced the full weight of separation from the Father so that you would never have to.</strong> The distance you feared between you and God — He entered it. He exhausted it. He closed it. Forever.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-crimson">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Lord Jesus, on this Easter Monday I return to the foot of the cross. Not hurrying past it. Not leaving it behind now that Sunday has come. I want to sit again with the full weight of what You did — not as theology alone, but as love directed at me personally.</p>
+            <p>You were pierced for my transgressions. Not for transgressions in the abstract — for mine, specifically, by name, known before time. The punishment that brought me peace was placed on You. I receive that again today with tears of gratitude I cannot fully express.</p>
+            <p>And in Your cry of dereliction, I find my deepest comfort: You have been where I was. You entered every darkness I have ever known. The forsaking You experienced means I will never be forsaken. Thank You. I do not have the words — but You know my heart.</p>
+            <p class="prayer-amen">In Your precious name, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-crimson">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-crimson"></div><span>Read Isaiah 53 in full, slowly. Read it as a letter written to you personally. Let every verse land.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-crimson"></div><span>Read the crucifixion account in John 19. Sit with the details — the thorns, the nails, the darkness, the thirst.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-crimson"></div><span>Journal: "What specific sin or shame of mine did Christ carry on the cross?" Name it. Leave it there.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-crimson"></div><span>Spend 10 minutes in silence before the cross — not asking for anything. Only receiving what has already been given.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" disabled>← Previous</button>
+        <span class="nav-foot-indicator">Day 1 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(1)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 2: TUESDAY ══════════════ -->
+    <div class="day-panel" id="day-1">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-crimson"><span class="badge-day">Tue</span><span class="badge-num">2</span></div>
+        <div>
+          <div class="day-title">It Is Finished</div>
+          <div class="day-theme-label dtl-crimson">The Crucifixion · The Earthquake of Three Words</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-crimson">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-crimson">
+            <div class="verse-label vl-crimson">Anchor</div>
+            <div class="verse-text">"When he had received the drink, Jesus said, 'It is finished.' With that, he bowed his head and gave up his spirit."</div>
+            <div class="verse-ref">John 19:30 — NIV</div>
+          </div>
+          <div class="verse-card vc-crimson">
+            <div class="verse-label vl-crimson">The Record Cancelled</div>
+            <div class="verse-text">"Having cancelled the charge of our legal indebtedness, which stood against us and condemned us; he has taken it away, nailing it to the cross."</div>
+            <div class="verse-ref">Colossians 2:14 — NIV</div>
+          </div>
+          <div class="verse-card vc-crimson">
+            <div class="verse-label vl-crimson">The Veil Torn</div>
+            <div class="verse-text">"Therefore, brothers and sisters, since we have confidence to enter the Most Holy Place by the blood of Jesus, by a new and living way opened for us through the curtain, that is, his body..."</div>
+            <div class="verse-ref">Hebrews 10:19–20 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-crimson">Revelation</div>
+        <div class="revelation-text">
+          <p>Three words. In the Greek, it is a single word: <em>Tetelestai.</em> It was a word stamped on commercial invoices in the ancient world — it meant "paid in full." When Jesus cried <em>tetelestai</em> from the cross, He was not whispering a dying breath. <strong>He was making a legal declaration: the debt has been settled. The account is closed. Nothing more is owed.</strong> The cross is not an ongoing transaction — it is a completed one.</p>
+          <p>Colossians 2:14 makes this breathtakingly concrete. Every charge against you — every act of rebellion, every failure of love, every broken promise, every secret sin — was written on a record that stood against you and condemned you. And Christ took that record and nailed it to the cross. Not filed it away. Not reduced the sentence. <strong>Nailed it. To the same wood that held His body.</strong> The record that condemned you was destroyed at the same moment He was. It does not exist anymore.</p>
+          <p>And then the veil tears — from top to bottom, from heaven downward — and the Most Holy Place, where no one but the high priest could enter, and only once a year, is now open. Always. To everyone. To you. <strong>The curtain that separated humanity from the presence of God is gone, and it was torn by God Himself.</strong> The way in is not your effort. The way in is His body. Come near. The door is permanently open.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-crimson">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Lord Jesus, I hear You say it today — Tetelestai. It is finished. And I receive it not as a historical footnote but as a present-tense reality that defines my life. The debt is paid. Every charge against me has been nailed to Your cross. I am not partly forgiven. I am not on probation. I am completely, irrevocably, fully reconciled.</p>
+            <p>Where shame has told me that my past still holds power over me, I declare: it was nailed to the cross. Where the enemy has whispered that I owe something more, that I must earn back what I have forfeited — I declare: it is finished. Nothing more is owed.</p>
+            <p>And I come near today through the open veil — not with timidity, not with the performance of someone trying to deserve access — but with the confidence of one who has been bought in, carried in, by the blood of Jesus. I am in Your presence. And I am welcome here.</p>
+            <p class="prayer-amen">In Your finished name, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-crimson">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-crimson"></div><span>Read Colossians 2:13–15 in full. Picture the list of charges being physically nailed to wood. Let it go.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-crimson"></div><span>Read Matthew 27:50–51 — the moment the veil tore. Meditate on what tearing from top to bottom means.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-crimson"></div><span>Journal: "What charge against me have I been carrying that Christ already nailed to the cross? Why have I been picking it back up?"</span></div>
+          <div class="practice-item"><div class="pi-dot pd-crimson"></div><span>Pray Hebrews 10:19–22 back to God as your declaration of confidence — enter boldly today.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(0)">← Previous</button>
+        <span class="nav-foot-indicator">Day 2 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(2)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 3: WEDNESDAY ══════════════ -->
+    <div class="day-panel" id="day-2">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-slate"><span class="badge-day">Wed</span><span class="badge-num">3</span></div>
+        <div>
+          <div class="day-title">The Silence of Holy Saturday</div>
+          <div class="day-theme-label dtl-slate">The Tomb · Waiting in the In-Between</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-slate">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-slate">
+            <div class="verse-label vl-slate">Anchor</div>
+            <div class="verse-text">"Because of the Lord's great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness. I say to myself, 'The Lord is my portion; therefore I will wait for him.'"</div>
+            <div class="verse-ref">Lamentations 3:22–24 — NIV</div>
+          </div>
+          <div class="verse-card vc-slate">
+            <div class="verse-label vl-slate">Hope in What Is Unseen</div>
+            <div class="verse-text">"But hope that is seen is no hope at all. Who hopes for what they already have? But if we hope for what we do not yet have, we wait for it patiently."</div>
+            <div class="verse-ref">Romans 8:24–25 — NIV</div>
+          </div>
+          <div class="verse-card vc-slate">
+            <div class="verse-label vl-slate">The Turn in the Darkness</div>
+            <div class="verse-text">"For he has not despised or scorned the suffering of the afflicted one; he has not hidden his face from him but has listened to his cry for help."</div>
+            <div class="verse-ref">Psalm 22:24 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-slate">Revelation</div>
+        <div class="revelation-text">
+          <p>Holy Saturday is the most overlooked day in the Christian calendar. The cross was behind the disciples. The resurrection had not yet come. They did not know what we now know — that Sunday was coming. They sat in the wreckage of their hopes, in the silence of a sealed tomb, wondering if everything they believed was wrong. <strong>This is not a theological abstraction. This is the experience of every believer who has prayed and not yet received an answer, who has stood at a grave and not yet seen resurrection.</strong></p>
+          <p>Lamentations 3 was written in the ruins of Jerusalem — the city destroyed, the temple gone, the people in exile. And yet from inside that devastation, the writer found this: <em>His compassions never fail. They are new every morning.</em> This is not naive optimism. <strong>It is the hardest, most costly kind of faith — faith that holds onto the character of God when the circumstances contradict it.</strong> The Lord is my portion. Therefore I will wait. Not because waiting is easy. Because He is trustworthy.</p>
+          <p>Psalm 22 — the very psalm Jesus quoted from the cross — does not end in desolation. It turns. By verse 24, the Psalmist has arrived at the truth that God has not hidden His face, that He has listened. <strong>Every Holy Saturday in your life — every season of silence, every sealed tomb — carries within it the structure of Psalm 22: a cry in the dark, and then a turn.</strong> Sunday always comes. It came for Christ. It will come for you too.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-slate">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father, I reflect today on the Saturday spaces of my own life — the places where I have cried out and not yet seen the answer, where the tomb still feels sealed, where Sunday seems far away. I do not pretend this is easy. I bring You the honest weight of waiting.</p>
+            <p>But I say with the writer of Lamentations, from inside the ruins: Your compassions have not failed. Your mercies are new this morning — even this morning. You are my portion. And because You are my portion, I will wait for You. Not because I have no other options, but because You are worth waiting for.</p>
+            <p>Remind me today that You have not hidden Your face from me. That You have heard every cry I have prayed in the dark. That what feels like silence is not absence. Sunday came for Christ — and it will come for every area of my life where the tomb is still sealed.</p>
+            <p class="prayer-amen">In the name of the One who rose, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-slate">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-slate"></div><span>Read Psalm 22 in full — from the cry of dereliction to the turn of praise. Do not skip to the praise.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-slate"></div><span>Name one area of your life that is currently in a "Holy Saturday" — between a word from God and its fulfilment. Hold it before Him today.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-slate"></div><span>Read Lamentations 3:1–33. Let the descent into grief and the turn toward hope both be real to you.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-slate"></div><span>Journal: "What does faithfulness to God look like when I cannot yet see what He is doing?"</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(1)">← Previous</button>
+        <span class="nav-foot-indicator">Day 3 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(3)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 4: THURSDAY ══════════════ -->
+    <div class="day-panel" id="day-3">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-slate"><span class="badge-day">Thu</span><span class="badge-num">4</span></div>
+        <div>
+          <div class="day-title">He Descended — and So You Are Not Alone</div>
+          <div class="day-theme-label dtl-slate">The Tomb · No Darkness He Has Not Entered</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-slate">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-slate">
+            <div class="verse-label vl-slate">Anchor</div>
+            <div class="verse-text">"What does 'he ascended' mean except that he also descended to the lower, earthly regions? He who descended is the very one who ascended higher than all the heavens, in order to fill the whole universe."</div>
+            <div class="verse-ref">Ephesians 4:9–10 — NIV</div>
+          </div>
+          <div class="verse-card vc-slate">
+            <div class="verse-label vl-slate">Death Destroyed from Within</div>
+            <div class="verse-text">"Since the children have flesh and blood, he too shared in their humanity so that by his death he might break the power of him who holds the power of death — that is, the devil — and free those who all their lives were held in slavery by their fear of death."</div>
+            <div class="verse-ref">Hebrews 2:14–15 — NIV</div>
+          </div>
+          <div class="verse-card vc-slate">
+            <div class="verse-label vl-slate">Nowhere Beyond His Reach</div>
+            <div class="verse-text">"If I go up to the heavens, you are there; if I make my bed in the depths, you are there."</div>
+            <div class="verse-ref">Psalm 139:8 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-slate">Revelation</div>
+        <div class="revelation-text">
+          <p>The Apostles' Creed contains a phrase that is often glossed over: <em>He descended into hell.</em> Whatever the precise theological meaning of that descent, the spiritual truth it carries is enormous: <strong>Christ went all the way down.</strong> He did not hover above the darkness and offer instructions from a safe distance. He entered it. He descended into the lowest place so that no place you can fall would be beyond His reach.</p>
+          <p>Hebrews 2:14–15 reveals the strategy of the incarnation and the cross. To destroy death, Christ shared in humanity — in flesh, in blood, in mortality. He entered the domain of the enemy and defeated him from the inside. <strong>Death could not hold Him because He had no sin — and yet He entered death fully, completely, bearing all our sin, so that when He emerged, He brought the keys with Him.</strong> The fear of death — that great enslaver of human souls — has been broken. Not eventually. Now.</p>
+          <p>Psalm 139:8 holds the implication of all of this for your daily life. If you make your bed in the depths — in depression, in grief, in shame, in failure, in the lowest place you have ever been — He is there. <strong>There is no bottom to human suffering that Christ has not already touched and transformed by His presence.</strong> You are never in a place where He cannot find you. You are never in a darkness He has not already entered. And from every depth, He has already begun the ascent.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-slate">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Lord Jesus, the depth of Your love astonishes me. You did not send rescue from a safe distance — You descended. You went all the way into the lowest place so that wherever I fall, You are already there, waiting, with Your hand outstretched.</p>
+            <p>I bring to You today the deepest places in me — the depths I do not show anyone else. The grief that has not lifted. The shame I still carry in secret. The fear that still grips me in the night. I bring every depth, because I know that in every depth, You are already present.</p>
+            <p>You broke the power of death itself. The fear of death — of endings, of loss, of the unknown — no longer has the final word in my life. You hold the keys. And because You ascended from the depths, You are taking me with You. Upward. Always upward.</p>
+            <p class="prayer-amen">In the name of the One who descended and ascended, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-slate">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-slate"></div><span>Read Hebrews 2:9–18 in full — Christ made like His brothers in every way, so He could be a merciful High Priest.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-slate"></div><span>Identify one "depth" in your life — a place of grief, shame, or fear. Write it down and write Psalm 139:8 alongside it.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-slate"></div><span>Meditate on Revelation 1:18 — "I hold the keys of death and Hades." Let the authority of that declaration sink in.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-slate"></div><span>Journal: "What does it mean for my daily life that Christ has been in my lowest places — and did not stay there?"</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(2)">← Previous</button>
+        <span class="nav-foot-indicator">Day 4 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(4)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 5: FRIDAY ══════════════ -->
+    <div class="day-panel" id="day-4">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-gold"><span class="badge-day">Fri</span><span class="badge-num">5</span></div>
+        <div>
+          <div class="day-title">The Resurrection Changes Everything</div>
+          <div class="day-theme-label dtl-gold">The Resurrection · Death Is Defeated</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">Anchor</div>
+            <div class="verse-text">"And if Christ has not been raised, your faith is futile; you are still in your sins... But Christ has indeed been raised from the dead, the firstfruits of those who have fallen asleep."</div>
+            <div class="verse-ref">1 Corinthians 15:17, 20 — NIV</div>
+          </div>
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">The Taunt Over Death</div>
+            <div class="verse-text">"Where, O death, is your victory? Where, O death, is your sting? The sting of death is sin, and the power of sin is the law. But thanks be to God! He gives us the victory through our Lord Jesus Christ."</div>
+            <div class="verse-ref">1 Corinthians 15:55–57 — NIV</div>
+          </div>
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">New Life, Now</div>
+            <div class="verse-text">"We were therefore buried with him through baptism into death in order that, just as Christ was raised from the dead through the glory of the Father, we too may live a new life."</div>
+            <div class="verse-ref">Romans 6:4 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Revelation</div>
+        <div class="revelation-text">
+          <p>Paul does not soften the stakes. If Christ has not been raised, he says, your faith is futile, you are still in your sins, and those who have died in Christ have simply perished. <strong>The resurrection is not a bonus feature of Christianity — it is the load-bearing wall.</strong> Remove it and the entire structure collapses. But Christ has indeed been raised. That single fact — historically attested, personally experienced by hundreds of eyewitnesses, and now celebrated this Easter — has changed the architecture of all of reality.</p>
+          <p>The word "firstfruits" in 1 Corinthians 15:20 is agricultural and legal. The firstfruits were the first portion of the harvest, offered to God as a pledge that the rest was coming. <strong>Christ's resurrection was not an isolated miracle — it was the first instalment of a total harvest.</strong> His rising guarantees your rising. His new body is the prototype of yours. Death has not been merely paused — it has been defeated as a principle, permanently, with consequences that will unfold across all of eternity.</p>
+          <p>Romans 6:4 brings the resurrection off the future calendar and into this morning. You were buried with Christ in baptism — and you were raised with Him. <strong>The new life is not something you are waiting to receive. It is something you are already living, if you know it.</strong> The invitation of the resurrection, right now today, is to live from the reality of your rising rather than the memory of your dying. You are not a sinner trying to become a saint. You are a new creation learning to walk in what you already are.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Risen Lord, I come to You today not at a cross, not at a tomb, but at an empty one. The grave could not hold You. Death could not contain You. And because You are risen, everything has changed — including me.</p>
+            <p>Where, O death, is your victory? I taunt it today, not in arrogance but in the authority that You have given me. The sting of sin has been extracted. The power of the law to condemn has been broken. I stand not in my own righteousness but in Yours — and Yours is resurrection righteousness, undefeatable and eternal.</p>
+            <p>Let me live today from the reality of my rising. Let me not crawl through this day as one still bound in grave clothes. I have been raised. Let my choices, my confidence, my generosity, my joy — let all of it reflect the life of One who has conquered death.</p>
+            <p class="prayer-amen">He is risen. He is risen indeed. Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Read 1 Corinthians 15 in full — Paul's entire resurrection chapter. Let the argument build and land completely.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Read John 20:1–18 — the empty tomb and Mary's encounter with the risen Christ. Sit with her moment of recognition.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Journal: "If I truly believed I was already raised with Christ, what would I do differently today?"</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Speak 1 Corinthians 15:55–57 aloud as a declaration over every area of your life where death has had a foothold.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(3)">← Previous</button>
+        <span class="nav-foot-indicator">Day 5 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(5)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 6: SATURDAY ══════════════ -->
+    <div class="day-panel" id="day-5">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-gold"><span class="badge-day">Sat</span><span class="badge-num">6</span></div>
+        <div>
+          <div class="day-title">Resurrection Life, Now</div>
+          <div class="day-theme-label dtl-gold">The Resurrection · Living from What You Already Are</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">Anchor</div>
+            <div class="verse-text">"Since, then, you have been raised with Christ, set your hearts on things above, where Christ is, seated at the right hand of God. Set your minds on things above, not on earthly things. For you died, and your life is now hidden with Christ in God."</div>
+            <div class="verse-ref">Colossians 3:1–3 — NIV</div>
+          </div>
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">The Exchange</div>
+            <div class="verse-text">"I have been crucified with Christ and I no longer live, but Christ lives in me. The life I now live in the body, I live by faith in the Son of God, who loved me and gave himself for me."</div>
+            <div class="verse-ref">Galatians 2:20 — NIV</div>
+          </div>
+          <div class="verse-card vc-gold">
+            <div class="verse-label vl-gold">Spirit and Body</div>
+            <div class="verse-text">"And if the Spirit of him who raised Jesus from the dead is living in you, he who raised Christ from the dead will also give life to your mortal bodies because of his Spirit who lives in you."</div>
+            <div class="verse-ref">Romans 8:11 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Revelation</div>
+        <div class="revelation-text">
+          <p>Colossians 3 begins with the word "since" — and that word carries enormous weight. Not "if you have been raised." Not "when you eventually get there." <em>Since.</em> It is an accomplished fact, a completed reality, a settled matter. <strong>You have already been raised with Christ.</strong> The question Paul is pressing is not whether you have resurrection life — it is whether you are living from it. Are your heart and mind oriented toward the reality of where you now are, or toward the reality of what you used to be?</p>
+          <p>Galatians 2:20 is perhaps the most radical statement of Christian identity in all of Scripture. <em>I no longer live.</em> The person who existed before Christ — defined by sin, by self, by the old patterns — that person died at the cross. What lives now is Christ living in and through the vessel of your body. <strong>This is not metaphor. This is not aspiration. This is the literal spiritual anatomy of a person in Christ.</strong> You are not trying to get Christ into you — He is already there. You are not working to become holy — you are learning to manifest what is already true.</p>
+          <p>Romans 8:11 closes the week's resurrection movement with the most personal promise of all. The very Spirit who raised Christ from physical death is living inside you. <strong>The power of the resurrection is not something that happened two thousand years ago and is available to you in theory — it is a present, active, indwelling force.</strong> The same energy that rolled the stone away is the energy in which you walk today. Live accordingly.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Morning Prayer</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Father, I rest in this truth today: I have been raised. I am not trying to be raised. I am not hoping to be raised one day. Since — since — I have been raised with Christ, my life is hidden with Him in God. I am held in the most secure place in the universe.</p>
+            <p>Let me live from this today. Not from the memory of my failures. Not from the fear of what might go wrong. Not from the exhausted place of someone still trying to earn what has already been given. From resurrection. From freedom. From the fullness of Christ who lives in me.</p>
+            <p>And let the same Spirit who raised Jesus from the dead quicken my mortal body today — my tired places, my weak places, my discouraged places. Breathe resurrection life into everything that feels dead. I am not a tomb. I am a temple. Inhabit me fully.</p>
+            <p class="prayer-amen">In the name of the risen Christ who lives in me, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-gold">Daily Practices</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Read Colossians 3:1–17 in full — what resurrection life looks like put on, day by day, in practical terms.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Write out Galatians 2:20 in your own words — as a personal statement of identity. Read it aloud over yourself.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Identify one area of your life you have been living from death rather than resurrection. Bring it to God and ask Him to breathe life into it.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-gold"></div><span>Do something today that is an expression of resurrection joy — generous, creative, alive. Let every day carry Easter forward.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(4)">← Previous</button>
+        <span class="nav-foot-indicator">Day 6 of 7</span>
+        <button class="nav-foot-btn" onclick="showDay(6)">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ DAY 7: SUNDAY ══════════════ -->
+    <div class="day-panel" id="day-6">
+      <div class="day-header-row">
+        <div class="day-badge-large dbl-forest"><span class="badge-day">Sun</span><span class="badge-num">7</span></div>
+        <div>
+          <div class="day-title">Sent as Witnesses of the Resurrection</div>
+          <div class="day-theme-label dtl-forest">Easter Monday · We Have Seen — and We Are Sent</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-forest">Three Scriptures</div>
+        <div class="verses-stack">
+          <div class="verse-card vc-forest">
+            <div class="verse-label vl-forest">Anchor</div>
+            <div class="verse-text">"Then Jesus came to them and said, 'All authority in heaven and on earth has been given to me. Therefore go and make disciples of all nations, baptising them in the name of the Father and of the Son and of the Holy Spirit.'"</div>
+            <div class="verse-ref">Matthew 28:18–19 — NIV</div>
+          </div>
+          <div class="verse-card vc-forest">
+            <div class="verse-label vl-forest">The Power to Go</div>
+            <div class="verse-text">"But you will receive power when the Holy Spirit comes on you; and you will be my witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth."</div>
+            <div class="verse-ref">Acts 1:8 — NIV</div>
+          </div>
+          <div class="verse-card vc-forest">
+            <div class="verse-label vl-forest">What We Have Seen</div>
+            <div class="verse-text">"You are witnesses of these things. I am going to send you what my Father has promised; but stay in the city until you have been clothed with power from on high."</div>
+            <div class="verse-ref">Luke 24:48–49 — NIV</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-forest">Revelation</div>
+        <div class="revelation-text">
+          <p>Easter Sunday has now passed — but the commission it carried has not. The risen Christ did not appear to His disciples and invite them to a quiet, private celebration. He appeared, showed them His wounds, breathed on them, and sent them. <strong>The resurrection is the most explosive event in human history, and explosive events do not remain contained.</strong> The stone was rolled away not just to let Jesus out — but to let the witnesses in, so they could run and tell. That mandate has not expired.</p>
+          <p>Matthew 28:18 contains the statement that grounds everything: <em>all authority in heaven and on earth has been given to me.</em> The commission is not built on human enthusiasm or institutional strategy. <strong>It is built on the total, complete, universal authority of the One who defeated death.</strong> Every power, every system, every principality — all of it is under His feet. And from that position of absolute authority, He says: therefore go. The commission flowed from the resurrection. You go because He reigns — and He reigns today, the day after Easter, just as He did on Sunday.</p>
+          <p>Luke 24:48 says simply: <em>you are witnesses of these things.</em> A witness is not someone who has a theory. A witness is someone who has seen. <strong>You have reflected this week on the cross, the tomb, the silence, the descent, the resurrection, the new life. Something has been deposited in you.</strong> And Acts 1:8 gives the promise that powers the going: the Holy Spirit will come, and you will be witnesses. Not by your own strength. Clothed in power from on high. Go. He is risen — and the world still needs to hear it.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-forest">Easter Monday Prayer — The Great Commission</div>
+        <div class="prayer-card">
+          <div class="prayer-text">
+            <p>Risen Lord, I stand on the other side of Easter — having reflected this week on the cross, the empty tomb, the silence of Saturday, the depth of Your descent, and the blazing reality of Your resurrection. I am not the same. You have done something in me through these reflections that I do not yet fully understand but that I receive with open hands.</p>
+            <p>You are risen. And because You are risen, all authority is Yours — not just on Easter Sunday, but today, and every ordinary day that follows. Every fear I carry about the future, every uncertainty about my calling, every inadequacy I feel for the mission You have placed in me — I lay it at the feet of the One who holds all authority in heaven and on earth. If You are for me, what can stand against me?</p>
+            <p>Send me. Into my neighbourhood, my workplace, my research, my community, my relationships. Make me a witness — not just in my words but in the quality of my life, the depth of my joy, the reality of my peace. Let people look at me and see someone who has been with the risen Christ. Clothe me with power from on high. I carry Easter Monday forward.</p>
+            <p>He is not here. He has risen. And I am sent.</p>
+            <p class="prayer-amen">Hallelujah — in the name of the risen Christ, Amen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label sl-forest">Easter Reflection</div>
+        <div class="practices-grid">
+          <div class="practice-item"><div class="pi-dot pd-forest"></div><span>Read Luke 24:13–35 — the road to Emmaus. Walk with the disciples from confusion to recognition to commission.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-forest"></div><span>Review your journal from the whole week. Write one sentence that captures the deepest thing God said to you.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-forest"></div><span>Share the resurrection with someone today — in words, in kindness, in an act of generosity that can only be explained by Easter.</span></div>
+          <div class="practice-item"><div class="pi-dot pd-forest"></div><span>Commit to carry one truth from this week into the month ahead. Write it somewhere you will see it daily.</span></div>
+        </div>
+      </div>
+
+      <div class="nav-footer">
+        <button class="nav-foot-btn" onclick="showDay(5)">← Previous</button>
+        <span class="nav-foot-indicator">Day 7 of 7</span>
+        <button class="nav-foot-btn" disabled>He is Risen ✝</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <blockquote>"He is not here; he has risen, just as he said. Come and see the place where he lay."</blockquote>
+  <span>Matthew 28:6 — Easter has come and gone. But the tomb is still empty. The story is not over. Go and live it.</span>
+</footer>
+
+<script>
+  let current = 0;
+  const dayData = [
+    { label: 'Mon' }, { label: 'Tue' }, { label: 'Wed' },
+    { label: 'Thu' }, { label: 'Fri' }, { label: 'Sat' }, { label: 'Sun' }
+  ];
+
+  const mobileTabs = document.getElementById('mobileTabs');
+  dayData.forEach((d, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'mobile-tab-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = d.label;
+    btn.onclick = () => showDay(i);
+    mobileTabs.appendChild(btn);
+  });
+
+  function showDay(n) {
+    document.getElementById('day-' + current).classList.remove('active');
+    document.querySelectorAll('.day-nav-btn')[current].classList.remove('active');
+    document.querySelectorAll('.mobile-tab-btn')[current].classList.remove('active');
+    current = n;
+    document.getElementById('day-' + current).classList.add('active');
+    document.querySelectorAll('.day-nav-btn')[current].classList.add('active');
+    document.querySelectorAll('.mobile-tab-btn')[current].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
